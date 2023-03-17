@@ -1,0 +1,160 @@
+ node [
+    id 0
+    label "Auckland 2"
+    Country "New Zealand"
+    Longitude 174.76667
+    Internal 1
+    Latitude -36.86667
+  ]
+  node [
+    id 1
+    label "Fiji"
+    Country "Fiji"
+    Longitude 178.0
+    Internal 1
+    Latitude -18.0
+  ]
+  node [
+    id 2
+    label "Sydney 1"
+    Country "Australia"
+    Longitude 151.20732
+    Internal 1
+    Latitude -33.86785
+  ]
+  node [
+    id 3
+    label "Auckland 1"
+    Country "New Zealand"
+    Longitude 174.76667
+    Internal 1
+    Latitude -36.86667
+  ]
+  node [
+    id 4
+    label "Sacramento"
+    Country "United States"
+    Longitude -121.4944
+    Internal 1
+    Latitude 38.58157
+  ]
+  node [
+    id 5
+    label "Los Angeles"
+    Country "United States"
+    Longitude -118.24368
+    Internal 1
+    Latitude 34.05223
+  ]
+  node [
+    id 6
+    label "Hawaii 1"
+    Country "United States"
+    Longitude -157.85833
+    Internal 1
+    Latitude 21.30694
+  ]
+  node [
+    id 7
+    label "Hawaii 2"
+    Country "United States"
+    Longitude -157.85833
+    Internal 1
+    Latitude 21.30694
+  ]
+  node [
+    id 8
+    label "Taiwan"
+    Country "Taiwan"
+    Longitude 121.0
+    Internal 1
+    Latitude 24.0
+  ]
+  node [
+    id 9
+    label "Philippines 2"
+    Country "Philippines"
+    Longitude 122.0
+    Internal 1
+    Latitude 13.0
+  ]
+  node [
+    id 10
+    label "Melbourne"
+    Country "Australia"
+    Longitude 144.96332
+    Internal 1
+    Latitude -37.814
+  ]
+  node [
+    id 11
+    label "Sydney 2"
+    Country "Australia"
+    Longitude 151.20732
+    Internal 1
+    Latitude -33.86785
+  ]
+  node [
+    id 12
+    label "Korea"
+    Country "South Korea"
+    Longitude 127.5
+    Internal 1
+    Latitude 37.0
+  ]
+  node [
+    id 13
+    label "Japan"
+    Country "Japan"
+    Longitude 139.75309
+    Internal 1
+    Latitude 35.68536
+  ]
+  node [
+    id 14
+    label "Guam"
+    Country "Guam"
+    Longitude 144.73667
+    Internal 1
+    Latitude 13.44444
+  ]
+  node [
+    id 15
+    label "Philippines 1"
+    Country "Philippines"
+    Longitude 122.0
+    Internal 1
+    Latitude 13.0
+  ]
+  node [
+    id 16
+    label "Hong Kong"
+    Country "Hong Kong"
+    Longitude 114.16667
+    Internal 1
+    Latitude 22.25
+  ]
+  node [
+    id 17
+    label "Singapore/Malaysia"
+    Country "Singapore"
+    Longitude 103.8
+    Internal 1
+    Latitude 1.36667
+  ]
+  node [
+    id 18
+    label "Thailand"
+    Country "Thailand"
+    Longitude 100.0
+    Internal 1
+    Latitude 15.0
+  ]
+  node [
+    id 19
+    label "Perth"
+    Country "Australia"
+    Longitude 115.83333
+    Internal 1
+    Latitude -31.93333
+  ]
