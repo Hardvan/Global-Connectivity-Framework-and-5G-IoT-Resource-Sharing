@@ -12,6 +12,9 @@ import numpy as np
 import Regions
 
 
+GRAPH_NO = 1  # For naming the Graphs
+
+
 def getLowerAndUpper():
 
     lower = random.randint(10, 60)
@@ -134,11 +137,15 @@ def plotGraph(x, y, x_name, y_name, color, title):
     # Plot Title
     plt.title(title)
 
+    # Save the Plot in Graphs folder
+    title = title.replace(" ", "_")
+    title = title.replace("/", "_")
+    global GRAPH_NO
+    plt.savefig(f"Graphs/{GRAPH_NO}_{title}.png")
+    GRAPH_NO += 1
+
     # function to show the plot
     plt.show()
-
-    # Save the Plot in Graphs folder
-    plt.savefig("Graphs/"+title+".png")
 
 
 def doRegion(nodes, midpoint, region_name):
@@ -375,11 +382,13 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list):
     # Add legend
     plt.legend()
 
+    # Save the Plot in Graphs folder
+    global GRAPH_NO
+    plt.savefig(f"Graphs/{GRAPH_NO}_LatencyAndLoad.png")
+    GRAPH_NO += 1
+
     # Display
     plt.show()
-
-    # Save the Plot in Graphs folder
-    plt.savefig("Graphs/LatencyAndLoad.png")
 
 
 # TOP LEVEL STATEMENTS
