@@ -48,7 +48,7 @@ The PERN region includes nodes in Pakistan, such as Peshawar, Karachi, Faisalaba
 
 To use the `NodesScript.py` script, follow these steps:
 
-1. Run the script by executing the `main() `function.
+1. Run the script by executing the `main() `function in the script.
 1. Choose a region (e.g., BT Asia-Pacific, Quest, TATA, ERNET, PERN) for analysis.
 1. The script will calculate latency, generate latency graphs, cluster nodes into four quadrants, and provide load distribution analysis.
 1. Graphs and visualizations are saved in the "Graphs" folder for further analysis and reference.
@@ -56,6 +56,19 @@ To use the `NodesScript.py` script, follow these steps:
 ## Graphs
 
 The script generates various graphs to visualize network latency, load distribution, and clustering:
+
+![Latency vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/1_Latency_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Ascending Latency vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/2_Ascending_Latency_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Latency vs. Quadrant 1 Chart](Graphs/3_Latency_v_s_Quadrant_1_Chart.png)
+![Latency vs. Quadrant 2 Chart](Graphs/4_Latency_v_s_Quadrant_2_Chart.png)
+![Latency vs. Quadrant 3 Chart](Graphs/5_Latency_v_s_Quadrant_3_Chart.png)
+![Latency vs. Quadrant 4 Chart](Graphs/6_Latency_v_s_Quadrant_4_Chart.png)
+![Latency Ratio vs. Node ID for BT Asia Pacific Region](Graphs/7_Latency_Ratio_v_s_Node_ID_for_BT_Asia_Pacific_Region.png)
+![Normalized Latency Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/8_Normalised_Latency_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Load vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/9_Load_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Load Ratio vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/10_Load_Ratio_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/11_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Latency and Load](Graphs/12_LatencyAndLoad.png)
 
 ## Load Distribution
 
