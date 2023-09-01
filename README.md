@@ -48,10 +48,14 @@ The PERN region includes nodes in Pakistan, such as Peshawar, Karachi, Faisalaba
 
 To use the `NodesScript.py` script, follow these steps:
 
-1. Run the script by executing the `main() `function in the script.
+1. Run the script by executing the `main()`function in the script.
 1. Choose a region (e.g., BT Asia-Pacific, Quest, TATA, ERNET, PERN) for analysis.
 1. The script will calculate latency, generate latency graphs, cluster nodes into four quadrants, and provide load distribution analysis.
 1. Graphs and visualizations are saved in the "Graphs" folder for further analysis and reference.
+
+## Load Distribution
+
+The script also analyzes load distribution among nodes. It calculates load limits for each node, generates load graphs, and provides load ratio analysis. Load distribution is optimized to ensure efficient resource utilization.
 
 ## Graphs
 
@@ -69,7 +73,3 @@ The script generates various graphs to visualize network latency, load distribut
 ![Load Ratio vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/10_Load_Ratio_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
 ![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/11_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
 ![Latency and Load](Graphs/12_LatencyAndLoad.png)
-
-## Load Distribution
-
-The script also analyzes load distribution among nodes. It calculates load limits for each node, generates load graphs, and provides load ratio analysis. Load distribution is optimized to ensure efficient resource utilization.
