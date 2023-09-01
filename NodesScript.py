@@ -30,12 +30,12 @@ def getData():
     midpoint = None
     region_name = None
 
-    print("Which Region?")
-    print("""Region 1: BT Asia-Pacific\n
-          Region 2: Quest\n
-          Region 3: TATA\n
-          Region 4: ERNET\n
-          Region 5: PERN""")
+    print("Which Region?\n")
+    print("Region 1: BT Asia-Pacific")
+    print("Region 2: Quest")
+    print("Region 3: TATA")
+    print("Region 4: ERNET")
+    print("Region 5: PERN")
 
     while True:
         choice = int(input("Enter your choice (1-5): "))
