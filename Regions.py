@@ -412,3 +412,42 @@ def PERN_Region():
     region_name = "QUEST"
 
     return nodes, midpoint, region_name
+
+
+def getData():
+
+    choice = None
+    nodes = None
+    midpoint = None
+    region_name = None
+
+    print("Which Region?\n")
+    print("Region 1: BT Asia-Pacific")
+    print("Region 2: Quest")
+    print("Region 3: TATA")
+    print("Region 4: ERNET")
+    print("Region 5: PERN")
+
+    while True:
+        choice = int(input("Enter your choice (1-5): "))
+        if choice in range(1, 5+1):
+            break
+        else:
+            print("Invalid Choice. Enter again")
+
+    if choice == 1:
+        nodes, midpoint, region_name = BTAsiaPacific_Region()
+
+    elif choice == 2:
+        nodes, midpoint, region_name = Quest_Region()
+
+    elif choice == 3:
+        nodes, midpoint, region_name = TATA_Region()
+
+    elif choice == 4:
+        nodes, midpoint, region_name = ERNET_Region()
+
+    elif choice == 5:
+        nodes, midpoint, region_name = PERN_Region()
+
+    return nodes, midpoint, region_name

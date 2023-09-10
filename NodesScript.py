@@ -23,45 +23,6 @@ def getLowerAndUpper():
     return lower, upper
 
 
-def getData():
-
-    choice = None
-    nodes = None
-    midpoint = None
-    region_name = None
-
-    print("Which Region?\n")
-    print("Region 1: BT Asia-Pacific")
-    print("Region 2: Quest")
-    print("Region 3: TATA")
-    print("Region 4: ERNET")
-    print("Region 5: PERN")
-
-    while True:
-        choice = int(input("Enter your choice (1-5): "))
-        if choice in range(1, 5+1):
-            break
-        else:
-            print("Invalid Choice. Enter again")
-
-    if choice == 1:
-        nodes, midpoint, region_name = Regions.BTAsiaPacific_Region()
-
-    elif choice == 2:
-        nodes, midpoint, region_name = Regions.Quest_Region()
-
-    elif choice == 3:
-        nodes, midpoint, region_name = Regions.TATA_Region()
-
-    elif choice == 4:
-        nodes, midpoint, region_name = Regions.ERNET_Region()
-
-    elif choice == 5:
-        nodes, midpoint, region_name = Regions.PERN_Region()
-
-    return nodes, midpoint, region_name
-
-
 def getQuadrant(long, lat, mid_long, mid_lat):
 
     quadrant = None
@@ -88,6 +49,7 @@ def getQuadrant(long, lat, mid_long, mid_lat):
 
 def getLatency(long, lat, mid_long, mid_lat):
     """Returns the latency between two points in ms.
+    Formula: Latency = 2 * distance / speed
 
     Args:
         long (float): Longitude of the first point.
@@ -155,49 +117,38 @@ def doRegion(nodes, midpoint, region_name):
 
         longitude = nodes[name]["Longitude"]
         latitude = nodes[name]["Latitude"]
-
         mid_longitude = midpoint["Longitude"]
         mid_latitude = midpoint["Latitude"]
 
-        latency = getLatency(longitude, latitude, mid_longitude, mid_latitude)
-
-        nodes[name]["Latency"] = latency
+        nodes[name]["Latency"] = getLatency(
+            longitude, latitude, mid_longitude, mid_latitude)
 
     """ Plotting Latency Graph in Normal Order """
 
     # Extracting all names and latencies in two lists
 
-    node_id_list = []
-    for name in nodes:
-        node_id_list.append(nodes[name]["Node ID"])
-
-    latency_list = []
-    for name in nodes:
-        latency = nodes[name]["Latency"]
-        latency_list.append(latency)
+    node_id_list = [nodes[name]["Node ID"] for name in nodes]
+    latency_list = [nodes[name]["Latency"] for name in nodes]
 
     plotGraph(x=node_id_list, y=latency_list,
               x_name="Node ID", y_name="Latency (ms)",
-              color="blue", title="Latency v/s Node ID Bar Chart for "+region_name+" Region")
+              color="blue", title=f"Latency v/s Node ID Bar Chart for {region_name} Region")
 
     """ Plotting Latency Graph in Ascending Order """
 
     # Performing selection sort to exchange node ids and latencies
-    for i in range(len(latency_list)):
+    n = len(latency_list)
+    for i in range(n):
 
-        for j in range(i + 1, len(latency_list)):
+        for j in range(i + 1, n):
 
             if latency_list[i] > latency_list[j]:
 
                 # Swapping Latencies
-                temp = latency_list[i]
-                latency_list[i] = latency_list[j]
-                latency_list[j] = temp
+                latency_list[i], latency_list[j] = latency_list[j], latency_list[i]
 
                 # Swapping Node IDs
-                temp = node_id_list[i]
-                node_id_list[i] = node_id_list[j]
-                node_id_list[j] = temp
+                node_id_list[i], node_id_list[j] = node_id_list[j], node_id_list[i]
 
     plotGraph(x=node_id_list, y=latency_list,
               x_name="Node ID", y_name="Latency (ms)",
@@ -229,17 +180,14 @@ def doRegion(nodes, midpoint, region_name):
 
         quadrant_nodes = cluster_dictionary[quadrant_no]
 
-        quadrant_name = "Quadrant " + str(quadrant_no)
+        quadrant_name = f"Quadrant {quadrant_no}"
 
         # Extracting all node ids and latencies in two lists
 
-        node_id_list = []
-        for name in quadrant_nodes:
-            node_id_list.append(quadrant_nodes[name]["Node ID"])
-
-        latency_list = []
-        for name in quadrant_nodes:
-            latency_list.append(quadrant_nodes[name]["Latency"])
+        node_id_list = [quadrant_nodes[name]["Node ID"]
+                        for name in quadrant_nodes]
+        latency_list = [quadrant_nodes[name]["Latency"]
+                        for name in quadrant_nodes]
 
         plotGraph(x=node_id_list, y=latency_list,
                   x_name="Node ID", y_name="Latency (ms)",
@@ -247,16 +195,12 @@ def doRegion(nodes, midpoint, region_name):
 
     """ Plotting Latency Ratio Graph """
 
-    node_id_list = []
-    for name in nodes:
-        node_id_list.append(nodes[name]["Node ID"])
+    node_id_list = [nodes[name]["Node ID"] for name in nodes]
+    latency_list = [nodes[name]["Latency"] for name in nodes]
 
-    latency_list = []
-    for name in nodes:
-        latency = nodes[name]["Latency"]
-        latency_list.append(latency)
-
-    latency_ratio_list = list(map(lambda x: x/max(latency_list), latency_list))
+    # Normalizing Latency (0 to 1)
+    max_latency = max(latency_list)
+    latency_ratio_list = list(map(lambda x: x/max_latency, latency_list))
 
     plotGraph(x=node_id_list, y=latency_ratio_list,
               x_name="Node ID", y_name="Latency Ratio",
@@ -274,12 +218,15 @@ def doRegion(nodes, midpoint, region_name):
 
             difference = ratio - threshold
 
+            # Find the least ratio and its index
             least_ratio = min(latency_ratio_list)
             least_ratio_index = latency_ratio_list.index(least_ratio)
 
             if least_ratio + difference <= 0.75:    # Distributing Load only if Lower Bar after addition is < threshold
                 ratio -= difference
                 least_ratio += difference
+            else:
+                raise Exception("Cannot Distribute Load in this Region")
 
             # Updating
             latency_ratio_list[i] = ratio
@@ -305,9 +252,7 @@ def doLoad(nodes, midpoint, region_name):
         nodes[name]["Lower Limit"] = lower
         nodes[name]["Upper Limit"] = upper
 
-    node_id_list = []
-    for name in nodes:
-        node_id_list.append(nodes[name]["Node ID"])
+    node_id_list = [nodes[name]["Node ID"] for name in nodes]
 
     load_list = []
     for name in nodes:
@@ -315,7 +260,9 @@ def doLoad(nodes, midpoint, region_name):
         lower = nodes[name]["Lower Limit"]
         upper = nodes[name]["Upper Limit"]
 
+        # generating random load b/w lower and upper
         load = random.randint(lower, upper)
+
         load_list.append(load)
 
     plotGraph(x=node_id_list, y=load_list,
@@ -382,6 +329,15 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list):
     # Add legend
     plt.legend()
 
+    # Naming the x-axis
+    plt.xlabel("Node ID")
+
+    # Naming the y-axis
+    plt.ylabel("Ratio")
+
+    # Plot Title
+    plt.title("Multi Bar Chart for Latency and Load")
+
     # Save the Plot in Graphs folder
     global GRAPH_NO
     plt.savefig(f"Graphs/{GRAPH_NO}_LatencyAndLoad.png")
@@ -396,7 +352,7 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list):
 def main():
 
     # Getting Region Details
-    nodes, midpoint, region_name = getData()
+    nodes, midpoint, region_name = Regions.getData()
 
     # Plotting Graph for Latency and Clusters
     node_id_list, latency_ratio_list = doRegion(nodes, midpoint, region_name)
