@@ -22,7 +22,11 @@ May 2022 - July 2022
 
 ### Regions.py
 
-`Regions.py` contains functions to define nodes, midpoint, and region name for different regions. Here are the included regions:
+`Regions.py` contains functions to define nodes, midpoint, and region name for different regions.
+
+The dataset was derived from [http://www.topology-zoo.org/index.html](http://www.topology-zoo.org/index.html) which is a collection of network topologies. The dataset contains information about nodes, such as their names, countries, longitude, and latitude. The dataset is used to define nodes for different regions.
+
+Here are the included regions:
 
 #### BT Asia Pacific Region
 
