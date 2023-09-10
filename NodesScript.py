@@ -77,6 +77,20 @@ def getLatency(long, lat, mid_long, mid_lat):
     return time
 
 
+def getLoad(lower, upper):
+    """Returns the load between two points in mbps.
+
+    Args:
+        lower (int): Lower limit of the load. (mbps)
+        upper (int): Upper limit of the load. (mbps)
+
+    Returns:
+        load (int): Load between the two points in mbps.
+    """
+
+    return random.randint(lower, upper)
+
+
 def plotGraph(x, y, x_name, y_name, color, title):
 
     # x-coordinates of left sides of bars
@@ -260,8 +274,7 @@ def doLoad(nodes, midpoint, region_name):
         lower = nodes[name]["Lower Limit"]
         upper = nodes[name]["Upper Limit"]
 
-        # generating random load b/w lower and upper
-        load = random.randint(lower, upper)
+        load = getLoad(lower, upper)
 
         load_list.append(load)
 
