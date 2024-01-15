@@ -246,6 +246,7 @@ def doRegion(nodes, midpoint, region_name):
     """ Distributing Latency """
 
     threshold = 0.75
+    print(f"Threshold Value for Latency: {threshold}")
 
     for i in range(len(latency_ratio_list)):
 
@@ -263,7 +264,8 @@ def doRegion(nodes, midpoint, region_name):
                 ratio -= difference
                 least_ratio += difference
             else:
-                raise Exception("Cannot Distribute Load in this Region")
+                print("❌ Cannot Distribute Load in this Region")
+                print("Continuing anyway...")
 
             # Updating
             latency_ratio_list[i] = ratio
@@ -323,6 +325,7 @@ def doLoad(nodes, midpoint, region_name):
     """ Distributing Load """
 
     threshold = 0.75
+    print(f"Threshold Value for Load: {threshold}")
 
     for i in range(len(load_ratio_list)):
 
@@ -394,7 +397,8 @@ def main():
     load_ratio_list = doLoad(nodes, midpoint, region_name)
 
     # Plotting Multi Bar Chart for Latency & Load
-    plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region_name)
+    plotLatencyAndLoad(node_id_list, latency_ratio_list,
+                       load_ratio_list, region_name)
 
 
 if __name__ == "__main__":
