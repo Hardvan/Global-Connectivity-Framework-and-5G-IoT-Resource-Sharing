@@ -9,6 +9,7 @@ import random
 import matplotlib.pyplot as plt
 import math
 import numpy as np
+import os
 
 # Custom Modules
 import Regions
@@ -110,7 +111,7 @@ def getLoad(lower, upper):
     return random.randint(lower, upper)
 
 
-def plotGraph(x, y, x_name, y_name, color, title):
+def plotGraph(x, y, x_name, y_name, color, title, region_name):
 
     # x-coordinates of left sides of bars
     left = list(range(1, len(x)+1))
@@ -127,11 +128,14 @@ def plotGraph(x, y, x_name, y_name, color, title):
     plt.ylabel(y_name)  # Naming the y-axis
     plt.title(title)  # Plot Title
 
-    # Save the Plot in Graphs folder
+    # Save the Plot in Graphs/region_name folder
     title = title.replace(" ", "_")
     title = title.replace("/", "_")
+    region_name = region_name.replace(" ", "_")
     global GRAPH_NO
-    plt.savefig(f"Graphs/{GRAPH_NO}_{title}.png")
+    if not os.path.exists(f"Graphs/{region_name}"):
+        os.makedirs(f"Graphs/{region_name}")
+    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_{title}.png")
     GRAPH_NO += 1
 
     plt.show()  # Display the plot
@@ -158,7 +162,8 @@ def doRegion(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=latency_list,
               x_name="Node ID", y_name="Latency (ms)",
-              color="blue", title=f"Latency v/s Node ID Bar Chart for {region_name} Region")
+              color="blue", title=f"Latency v/s Node ID Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     """ Plotting Latency Graph in Ascending Order """
 
@@ -176,7 +181,8 @@ def doRegion(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=latency_list,
               x_name="Node ID", y_name="Latency (ms)",
-              color="blue", title="Ascending Latency v/s Node ID Bar Chart for "+region_name+" Region")
+              color="blue", title=f"Ascending Latency v/s Node ID Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     """ Dividing into Clusters """
 
@@ -219,7 +225,9 @@ def doRegion(nodes, midpoint, region_name):
 
         plotGraph(x=node_id_list, y=latency_list,
                   x_name="Node ID", y_name="Latency (ms)",
-                  color=color_list[quadrant_no-1], title="Latency v/s "+quadrant_name+" Chart")
+                  color=color_list[quadrant_no -
+                                   1], title="Latency v/s "+quadrant_name+" Chart",
+                  region_name=region_name)
 
     """ Plotting Latency Ratio Graph """
 
@@ -232,7 +240,8 @@ def doRegion(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=latency_ratio_list,
               x_name="Node ID", y_name="Latency Ratio",
-              color="Purple", title="Latency Ratio v/s Node ID for "+region_name+" Region")
+              color="Purple", title=f"Latency Ratio v/s Node ID for {region_name} Region",
+              region_name=region_name)
 
     """ Distributing Latency """
 
@@ -264,7 +273,8 @@ def doRegion(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=latency_ratio_list,
               x_name="Node ID", y_name="Latency Ratio",
-              color="Green", title="Normalised Latency Ratio v/s Node ID Bar Chart for "+region_name+" Region")
+              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     print("Max Value of Normalized Latency is:", max(latency_ratio_list))
 
@@ -296,7 +306,8 @@ def doLoad(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=load_list,
               x_name="Node ID", y_name="Load (mbps)",
-              color="orange", title="Load v/s Node Name Bar Chart for "+region_name+" Region")
+              color="orange", title=f"Load v/s Node Name Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     """ Plotting the Load Ratio Graph """
 
@@ -306,7 +317,8 @@ def doLoad(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=load_ratio_list,
               x_name="Node ID", y_name="Load Ratio",
-              color="orange", title="Load Ratio v/s Node Name Bar Chart for "+region_name+" Region")
+              color="orange", title=f"Load Ratio v/s Node Name Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     """ Distributing Load """
 
@@ -335,14 +347,15 @@ def doLoad(nodes, midpoint, region_name):
 
     plotGraph(x=node_id_list, y=load_ratio_list,
               x_name="Node ID", y_name="Load Ratio",
-              color="green", title="Normalised Load Ratio v/s Node ID Bar Chart for "+region_name+" Region")
+              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region",
+              region_name=region_name)
 
     print("Max Value of Normalized Load is:", max(load_ratio_list))
 
     return load_ratio_list
 
 
-def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list):
+def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region_name):
 
     x_axis = np.arange(len(node_id_list))
 
@@ -359,7 +372,10 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list):
 
     # Save the Plot in Graphs folder
     global GRAPH_NO
-    plt.savefig(f"Graphs/{GRAPH_NO}_LatencyAndLoad.png")
+    region_name = region_name.replace(" ", "_")
+    if not os.path.exists(f"Graphs/{region_name}"):
+        os.makedirs(f"Graphs/{region_name}")
+    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_LatencyAndLoad.png")
     GRAPH_NO += 1
 
     plt.show()  # Display the plot
@@ -378,7 +394,7 @@ def main():
     load_ratio_list = doLoad(nodes, midpoint, region_name)
 
     # Plotting Multi Bar Chart for Latency & Load
-    plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list)
+    plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region_name)
 
 
 if __name__ == "__main__":
