@@ -1,114 +1,36 @@
 """ 
-1) Find Latency (Delay) for each Node. Latency = 2 * distance / speed.
-2) Plot Graph in ascending order.
-3) Clustering: Based on four Quadrants. Assume Midpoint as Origin.
+    Flow of execution:
+    1. Get region details such as nodes, midpoint and region name from Regions.py
+    2. doRegion() function:
+        Plot Latency v/s Node ID Bar Chart
+        Plot Ascending Latency v/s Node ID Bar Chart
+        Plot Latency v/s Quadrant Chart
+        Plot Latency Ratio v/s Node ID Bar Chart
+        Plot Normalised Latency Ratio v/s Node ID Bar Chart
+    3. doLoad() function:
+        Plot Load v/s Node ID Bar Chart
+        Plot Load Ratio v/s Node ID Bar Chart
+        Plot Normalised Load Ratio v/s Node ID Bar Chart
+    4. plotLatencyAndLoad() function:
+        Plot Multi Bar Chart for Latency and Load
+
+    TODO:
+    1. Shortest path from midpoint to all nodes: Apply Bellman Ford algorithm.
+    2. Maximum flow (load) in the network region: Apply Ford Fulkerson Algorithm.
 """
 
 
-import random
 import matplotlib.pyplot as plt
-import math
 import numpy as np
 import os
 
 # Custom Modules
 import Regions
+from Metrics import *
 
 
 # GLOBAL VARIABLES
 GRAPH_NO = 1  # For naming the Graphs
-
-
-def getLowerAndUpper():
-    """Returns the lower and upper limit of the load in mbps.
-
-    Returns:
-        lower (int): Lower limit of the load. (mbps)
-        upper (int): Upper limit of the load. (mbps)
-    """
-
-    lower = random.randint(10, 60)
-    upper = random.randint(100, 400)
-
-    return lower, upper
-
-
-def getQuadrant(long, lat, mid_long, mid_lat):
-    """Returns the quadrant in which the point lies.
-
-    Args:
-        long (float): Longitude of the point.
-        lat (float): Latitude of the point.
-        mid_long (float): Longitude of the midpoint.
-        mid_lat (float): Latitude of the midpoint.
-
-    Returns:
-        quadrant (int): Quadrant in which the point lies.
-    """
-
-    # Origin
-    X = mid_long
-    Y = mid_lat
-
-    # Current Point
-    x = long
-    y = lat
-
-    quadrant = None
-    if x > X and y > Y:
-        quadrant = 1
-    elif x < X and y > Y:
-        quadrant = 2
-    elif x < X and y < Y:
-        quadrant = 3
-    elif x > X and y < Y:
-        quadrant = 4
-
-    return quadrant
-
-
-def getLatency(long, lat, mid_long, mid_lat):
-    """Returns the latency between two points in ms.
-    Formula: Latency = 2*distance / speed
-
-    Args:
-        long (float): Longitude of the first point.
-        lat (float): Latitude of the first point.
-        mid_long (float): Longitude of the second point.
-        mid_lat (float): Latitude of the second point.
-
-    Returns:
-        time (float): Latency between the two points in ms.
-    """
-
-    long_km = long * 111.32 * math.cos(math.radians(lat))
-    lat_km = lat * 110.574
-
-    mid_long_km = mid_long * 111.32 * math.cos(math.radians(mid_lat))
-    mid_lat_km = mid_lat * 110.574
-
-    distance = math.sqrt((long_km - mid_long_km)**2 +
-                         (lat_km - mid_lat_km)**2)     # in km
-
-    speed = 3e5  # in km/s
-
-    time = (2 * distance / speed) * 1000  # in ms
-
-    return time
-
-
-def getLoad(lower, upper):
-    """Returns the load between two points in mbps.
-
-    Args:
-        lower (int): Lower limit of the load. (mbps)
-        upper (int): Upper limit of the load. (mbps)
-
-    Returns:
-        load (int): Load between the two points in mbps.
-    """
-
-    return random.randint(lower, upper)
 
 
 def plotGraph(x, y, x_name, y_name, color, title, region_name):
@@ -234,7 +156,7 @@ def doRegion(nodes, midpoint, region_name):
     node_id_list = [nodes[name]["Node ID"] for name in nodes]
     latency_list = [nodes[name]["Latency"] for name in nodes]
 
-    # Normalizing Latency (0 to 1)
+    # Scaling Latency (0 to 1)
     max_latency = max(latency_list)
     latency_ratio_list = list(map(lambda x: x/max_latency, latency_list))
 
@@ -243,7 +165,7 @@ def doRegion(nodes, midpoint, region_name):
               color="Purple", title=f"Latency Ratio v/s Node ID for {region_name} Region",
               region_name=region_name)
 
-    """ Distributing Latency """
+    """ Distributing Latency (Normalizing) """
 
     threshold = 0.75
     print(f"Threshold Value for Latency: {threshold}")
@@ -260,7 +182,7 @@ def doRegion(nodes, midpoint, region_name):
             least_ratio = min(latency_ratio_list)
             least_ratio_index = latency_ratio_list.index(least_ratio)
 
-            if least_ratio + difference <= 0.75:    # Distributing Load only if Lower Bar after addition is < threshold
+            if least_ratio + difference <= 0.75:  # Distributing Load only if Lower Bar after addition is < threshold
                 ratio -= difference
                 least_ratio += difference
             else:
@@ -322,7 +244,7 @@ def doLoad(nodes, midpoint, region_name):
               color="orange", title=f"Load Ratio v/s Node Name Bar Chart for {region_name} Region",
               region_name=region_name)
 
-    """ Distributing Load """
+    """ Distributing Load (Normalizing) """
 
     threshold = 0.75
     print(f"Threshold Value for Load: {threshold}")
