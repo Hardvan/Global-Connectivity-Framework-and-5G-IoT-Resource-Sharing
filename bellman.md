@@ -1,290 +1,326 @@
-# Bellman Ford for BT Asia Pacific Region
+# Bellman Ford for ERNET Region
 
-## Adjacency List for Jakarta Node
+No. of Nodes: 15
+
+## Adjacency List for Pune Node
+
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Perth | 19.85 |
-| Singapore | 5.81 |
-| Kuala Lumpur | 7.72 |
-| Sydney | 24.93 |
-| Auckland | 33.65 |
-| New Delhi | 38.39 |
-| Mumbai | 33.38 |
-| Seoul | 32.54 |
-| Tokyo | 31.3 |
-| Taipei | 23.23 |
-| Hong Kong | 21.01 |
-| Manila | 17.33 |
-| Bangkok | 16.04 |
-| Chenai | 25.2 |
+| Indore | 3.1 |
+| Trivandrum | 8.65 |
+| Mumbai | 0.93 |
+| Ahmedabad | 4.09 |
+| Jaipur | 6.45 |
+| Chennai | 7.26 |
+| Bengaluru | 5.82 |
+| Delhi | 7.64 |
+| Guwahati | 10.74 |
+| Gorakhpur | 8.62 |
+| Kanpur | 5.86 |
+| Kalkota | 9.09 |
+| Bhubaneswar | 7.9 |
+| Hyderabad | 3.71 |
 
-## Adjacency List for Perth Node
+## Adjacency List for Indore Node
+
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 19.85 |
-| Singapore | 24.83 |
-| Kuala Lumpur | 25.97 |
-| Sydney | 20.27 |
-| Auckland | 31.02 |
-| New Delhi | 50.07 |
-| Mumbai | 43.45 |
-| Seoul | 51.26 |
-| Tokyo | 51.05 |
-| Taipei | 42.91 |
-| Hong Kong | 40.34 |
-| Manila | 37.03 |
-| Bangkok | 33.68 |
-| Chenai | 36.39 |
+| Pune | 3.1 |
+| Trivandrum | 11.44 |
+| Mumbai | 2.84 |
+| Ahmedabad | 2.33 |
+| Jaipur | 3.55 |
+| Chennai | 9.37 |
+| Bengaluru | 8.32 |
+| Delhi | 4.65 |
+| Guwahati | 9.54 |
+| Gorakhpur | 5.8 |
+| Kanpur | 3.56 |
+| Kalkota | 8.65 |
+| Bhubaneswar | 8.07 |
+| Hyderabad | 5.38 |
 
-## Adjacency List for Singapore Node
+## Adjacency List for Trivandrum Node
+
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 5.81 |
-| Perth | 24.83 |
-| Kuala Lumpur | 2.18 |
-| Sydney | 30.52 |
-| Auckland | 38.79 |
-| New Delhi | 33.5 |
-| Mumbai | 29.04 |
-| Seoul | 26.85 |
-| Tokyo | 26.3 |
-| Taipei | 18.12 |
-| Hong Kong | 15.54 |
-| Manila | 13.89 |
-| Bangkok | 10.27 |
-| Chenai | 20.92 |
-
-## Adjacency List for Kuala Lumpur Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 7.72 |
-| Perth | 25.97 |
-| Singapore | 2.18 |
-| Sydney | 32.59 |
-| Auckland | 40.95 |
-| New Delhi | 31.32 |
-| Mumbai | 26.92 |
-| Seoul | 25.39 |
-| Tokyo | 25.53 |
-| Taipei | 17.36 |
-| Hong Kong | 14.44 |
-| Manila | 14.3 |
-| Bangkok | 8.34 |
-| Chenai | 18.81 |
-
-## Adjacency List for Sydney Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 24.93 |
-| Perth | 20.27 |
-| Singapore | 30.52 |
-| Kuala Lumpur | 32.59 |
-| Auckland | 10.82 |
-| New Delhi | 62.94 |
-| Mumbai | 57.35 |
-| Seoul | 55.81 |
-| Tokyo | 52.0 |
-| Taipei | 44.92 |
-| Hong Kong | 43.95 |
-| Manila | 36.28 |
-| Bangkok | 40.76 |
-| Chenai | 49.33 |
-
-## Adjacency List for Auckland Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 33.65 |
-| Perth | 31.02 |
-| Singapore | 38.79 |
-| Kuala Lumpur | 40.95 |
-| Sydney | 10.82 |
-| New Delhi | 72.04 |
-| Mumbai | 66.85 |
-| Seoul | 62.1 |
-| Tokyo | 56.9 |
-| Taipei | 50.69 |
-| Hong Kong | 50.45 |
-| Manila | 41.53 |
-| Bangkok | 48.71 |
-| Chenai | 58.72 |
-
-## Adjacency List for New Delhi Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 38.39 |
-| Perth | 50.07 |
-| Singapore | 33.5 |
-| Kuala Lumpur | 31.32 |
-| Sydney | 62.94 |
-| Auckland | 72.04 |
-| Mumbai | 7.14 |
-| Seoul | 25.27 |
-| Tokyo | 34.3 |
-| Taipei | 31.52 |
-| Hong Kong | 28.48 |
-| Manila | 38.02 |
-| Bangkok | 24.73 |
-| Chenai | 13.82 |
+| Pune | 8.65 |
+| Indore | 11.44 |
+| Mumbai | 9.43 |
+| Ahmedabad | 12.73 |
+| Jaipur | 14.97 |
+| Chennai | 3.74 |
+| Bengaluru | 3.33 |
+| Delhi | 16.08 |
+| Guwahati | 13.85 |
+| Gorakhpur | 17.2 |
+| Kanpur | 12.61 |
+| Kalkota | 11.16 |
+| Bhubaneswar | 9.27 |
+| Hyderabad | 6.61 |
 
 ## Adjacency List for Mumbai Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 33.38 |
-| Perth | 43.45 |
-| Singapore | 29.04 |
-| Kuala Lumpur | 26.92 |
-| Sydney | 57.35 |
-| Auckland | 66.85 |
-| New Delhi | 7.14 |
-| Seoul | 27.26 |
-| Tokyo | 35.29 |
-| Taipei | 30.92 |
-| Hong Kong | 27.39 |
-| Manila | 35.92 |
-| Bangkok | 21.7 |
-| Chenai | 8.18 |
 
-## Adjacency List for Seoul Node
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 32.54 |
-| Perth | 51.26 |
-| Singapore | 26.85 |
-| Kuala Lumpur | 25.39 |
-| Sydney | 55.81 |
-| Auckland | 62.1 |
-| New Delhi | 25.27 |
-| Mumbai | 27.26 |
-| Tokyo | 9.63 |
-| Taipei | 11.59 |
-| Hong Kong | 11.86 |
-| Manila | 20.86 |
-| Bangkok | 17.7 |
-| Chenai | 24.56 |
+| Pune | 0.93 |
+| Indore | 2.84 |
+| Trivandrum | 9.43 |
+| Ahmedabad | 3.33 |
+| Jaipur | 5.9 |
+| Chennai | 8.18 |
+| Bengaluru | 6.7 |
+| Delhi | 7.14 |
+| Guwahati | 11.3 |
+| Gorakhpur | 8.0 |
+| Kanpur | 6.04 |
+| Kalkota | 9.8 |
+| Bhubaneswar | 8.7 |
+| Hyderabad | 4.63 |
 
-## Adjacency List for Tokyo Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 1000000.12 |
-| Perth | 51.05 |
-| Singapore | 26.3 |
-| Kuala Lumpur | 25.53 |
-| Sydney | 52.0 |
-| Auckland | 56.9 |
-| New Delhi | 34.3 |
-| Mumbai | 35.29 |
-| Seoul | 9.63 |
-| Taipei | 8.18 |
-| Hong Kong | 11.42 |
-| Manila | 15.72 |
-| Bangkok | 19.95 |
-| Chenai | 31.0 |
+## Adjacency List for Ahmedabad Node
 
-## Adjacency List for Taipei Node
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 23.23 |
-| Perth | 42.91 |
-| Singapore | 18.12 |
-| Kuala Lumpur | 17.36 |
-| Sydney | 44.92 |
-| Auckland | 50.69 |
-| New Delhi | 31.52 |
-| Mumbai | 30.92 |
-| Seoul | 11.59 |
-| Tokyo | 8.18 |
-| Hong Kong | 3.89 |
-| Manila | 9.28 |
-| Bangkok | 12.45 |
-| Chenai | 25.27 |
+| Pune | 4.09 |
+| Indore | 2.33 |
+| Trivandrum | 12.73 |
+| Mumbai | 3.33 |
+| Jaipur | 2.92 |
+| Chennai | 11.18 |
+| Bengaluru | 9.88 |
+| Delhi | 4.19 |
+| Guwahati | 11.74 |
+| Gorakhpur | 4.78 |
+| Kanpur | 5.55 |
+| Kalkota | 10.97 |
+| Bhubaneswar | 10.38 |
+| Hyderabad | 7.3 |
 
-## Adjacency List for Hong Kong Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 21.01 |
-| Perth | 40.34 |
-| Singapore | 15.54 |
-| Kuala Lumpur | 14.44 |
-| Sydney | 43.95 |
-| Auckland | 50.45 |
-| New Delhi | 28.48 |
-| Mumbai | 27.39 |
-| Seoul | 11.86 |
-| Tokyo | 11.42 |
-| Taipei | 3.89 |
-| Manila | 10.21 |
-| Bangkok | 8.65 |
-| Chenai | 21.46 |
+## Adjacency List for Jaipur Node
 
-## Adjacency List for Manila Node
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 17.33 |
-| Perth | 37.03 |
-| Singapore | 13.89 |
-| Kuala Lumpur | 14.3 |
-| Sydney | 36.28 |
-| Auckland | 41.53 |
-| New Delhi | 38.02 |
-| Mumbai | 35.92 |
-| Seoul | 20.86 |
-| Tokyo | 15.72 |
-| Taipei | 9.28 |
-| Hong Kong | 10.21 |
-| Bangkok | 14.44 |
-| Chenai | 28.88 |
+| Pune | 6.45 |
+| Indore | 3.55 |
+| Trivandrum | 14.97 |
+| Mumbai | 5.9 |
+| Ahmedabad | 2.92 |
+| Chennai | 12.87 |
+| Bengaluru | 11.87 |
+| Delhi | 1.27 |
+| Guwahati | 10.95 |
+| Gorakhpur | 2.25 |
+| Kanpur | 4.8 |
+| Kalkota | 10.87 |
+| Bhubaneswar | 10.79 |
+| Hyderabad | 8.87 |
 
-## Adjacency List for Bangkok Node
-| Neighbour Name | Latency (ms) |
-| --- | --- |
-| Jakarta | 16.04 |
-| Perth | 33.68 |
-| Singapore | 10.27 |
-| Kuala Lumpur | 8.34 |
-| Sydney | 40.76 |
-| Auckland | 48.71 |
-| New Delhi | 24.73 |
-| Mumbai | 21.7 |
-| Seoul | 17.7 |
-| Tokyo | 19.95 |
-| Taipei | 12.45 |
-| Hong Kong | 8.65 |
-| Manila | 14.44 |
-| Chenai | 14.44 |
+## Adjacency List for Chennai Node
 
-## Adjacency List for Chenai Node
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 25.2 |
-| Perth | 36.39 |
-| Singapore | 20.92 |
-| Kuala Lumpur | 18.81 |
-| Sydney | 49.33 |
-| Auckland | 58.72 |
-| New Delhi | 13.82 |
+| Pune | 7.26 |
+| Indore | 9.37 |
+| Trivandrum | 3.74 |
 | Mumbai | 8.18 |
-| Seoul | 24.56 |
-| Tokyo | 31.0 |
-| Taipei | 25.27 |
-| Hong Kong | 21.46 |
-| Manila | 28.88 |
-| Bangkok | 14.44 |
+| Ahmedabad | 11.18 |
+| Jaipur | 12.87 |
+| Bengaluru | 1.91 |
+| Delhi | 13.82 |
+| Guwahati | 10.13 |
+| Gorakhpur | 15.12 |
+| Kanpur | 9.65 |
+| Kalkota | 7.43 |
+| Bhubaneswar | 5.55 |
+| Hyderabad | 4.0 |
+
+## Adjacency List for Bengaluru Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 5.82 |
+| Indore | 8.32 |
+| Trivandrum | 3.33 |
+| Mumbai | 6.7 |
+| Ahmedabad | 9.88 |
+| Jaipur | 11.87 |
+| Chennai | 1.91 |
+| Delhi | 12.93 |
+| Guwahati | 10.94 |
+| Gorakhpur | 14.12 |
+| Kanpur | 9.28 |
+| Kalkota | 8.35 |
+| Bhubaneswar | 6.47 |
+| Hyderabad | 3.29 |
+
+## Adjacency List for Delhi Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 7.64 |
+| Indore | 4.65 |
+| Trivandrum | 16.08 |
+| Mumbai | 7.14 |
+| Ahmedabad | 4.19 |
+| Jaipur | 1.27 |
+| Chennai | 13.82 |
+| Bengaluru | 12.93 |
+| Guwahati | 10.95 |
+| Gorakhpur | 1.52 |
+| Kanpur | 5.12 |
+| Kalkota | 11.19 |
+| Bhubaneswar | 11.31 |
+| Hyderabad | 9.84 |
+
+## Adjacency List for Guwahati Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 10.74 |
+| Indore | 9.54 |
+| Trivandrum | 13.85 |
+| Mumbai | 11.3 |
+| Ahmedabad | 11.74 |
+| Jaipur | 10.95 |
+| Chennai | 10.13 |
+| Bengaluru | 10.94 |
+| Delhi | 10.95 |
+| Gorakhpur | 12.43 |
+| Kanpur | 6.28 |
+| Kalkota | 2.72 |
+| Bhubaneswar | 4.59 |
+| Hyderabad | 8.53 |
+
+## Adjacency List for Gorakhpur Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 8.62 |
+| Indore | 5.8 |
+| Trivandrum | 17.2 |
+| Mumbai | 8.0 |
+| Ahmedabad | 4.78 |
+| Jaipur | 2.25 |
+| Chennai | 15.12 |
+| Bengaluru | 14.12 |
+| Delhi | 1.52 |
+| Guwahati | 12.43 |
+| Kanpur | 6.63 |
+| Kalkota | 12.71 |
+| Bhubaneswar | 12.81 |
+| Hyderabad | 11.12 |
+
+## Adjacency List for Kanpur Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 5.86 |
+| Indore | 3.56 |
+| Trivandrum | 12.61 |
+| Mumbai | 6.04 |
+| Ahmedabad | 5.55 |
+| Jaipur | 4.8 |
+| Chennai | 9.65 |
+| Bengaluru | 9.28 |
+| Delhi | 5.12 |
+| Guwahati | 6.28 |
+| Gorakhpur | 6.63 |
+| Kalkota | 6.09 |
+| Bhubaneswar | 6.24 |
+| Hyderabad | 6.0 |
+
+## Adjacency List for Kalkota Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 9.09 |
+| Indore | 8.65 |
+| Trivandrum | 11.16 |
+| Mumbai | 9.8 |
+| Ahmedabad | 10.97 |
+| Jaipur | 10.87 |
+| Chennai | 7.43 |
+| Bengaluru | 8.35 |
+| Delhi | 11.19 |
+| Guwahati | 2.72 |
+| Gorakhpur | 12.71 |
+| Kanpur | 6.09 |
+| Bhubaneswar | 1.9 |
+| Hyderabad | 6.28 |
+
+## Adjacency List for Bhubaneswar Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 7.9 |
+| Indore | 8.07 |
+| Trivandrum | 9.27 |
+| Mumbai | 8.7 |
+| Ahmedabad | 10.38 |
+| Jaipur | 10.79 |
+| Chennai | 5.55 |
+| Bengaluru | 6.47 |
+| Delhi | 11.31 |
+| Guwahati | 4.59 |
+| Gorakhpur | 12.81 |
+| Kanpur | 6.24 |
+| Kalkota | 1.9 |
+| Hyderabad | 4.69 |
+
+## Adjacency List for Hyderabad Node
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 3.71 |
+| Indore | 5.38 |
+| Trivandrum | 6.61 |
+| Mumbai | 4.63 |
+| Ahmedabad | 7.3 |
+| Jaipur | 8.87 |
+| Chennai | 4.0 |
+| Bengaluru | 3.29 |
+| Delhi | 9.84 |
+| Guwahati | 8.53 |
+| Gorakhpur | 11.12 |
+| Kanpur | 6.0 |
+| Kalkota | 6.28 |
+| Bhubaneswar | 4.69 |
+
+## Adjacency List for Source Node: Bengaluru after converting 50% of latencies to a large number
+
+| Neighbour Name | Latency (ms) |
+| --- | --- |
+| Pune | 5.82 |
+| Indore | 8.32 |
+| Trivandrum | 3.33 |
+| Mumbai | 6.7 |
+| Ahmedabad | 9.88 |
+| Jaipur | 11.87 |
+| Chennai | 10633.55 |
+| Delhi | 64933.1 |
+| Guwahati | 90542.87 |
+| Gorakhpur | 14.12 |
+| Kanpur | 9.28 |
+| Kalkota | 73845.51 |
+| Bhubaneswar | 91593.09 |
+| Hyderabad | 68670.63 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Distance (ms) | Path |
 | --- | --- | --- |
-| Jakarta | 31.41 | Taipei -> Jakarta |
-| Perth | 51.05 | Perth |
-| Singapore | 26.3 | Singapore |
-| Kuala Lumpur | 25.53 | Kuala Lumpur |
-| Sydney | 52.0 | Sydney |
-| Auckland | 56.9 | Auckland |
-| New Delhi | 34.3 | New Delhi |
-| Mumbai | 35.29 | Mumbai |
-| Seoul | 9.63 | Seoul |
-| Tokyo | 0 |  |
-| Taipei | 8.18 | Taipei |
-| Hong Kong | 11.42 | Hong Kong |
-| Manila | 15.72 | Manila |
-| Bangkok | 19.95 | Bangkok |
-| Chenai | 31.0 | Chenai |
+| Pune | 5.82 | Pune |
+| Indore | 8.32 | Indore |
+| Trivandrum | 3.33 | Trivandrum |
+| Mumbai | 6.7 | Mumbai |
+| Ahmedabad | 9.88 | Ahmedabad |
+| Jaipur | 11.87 | Jaipur |
+| Chennai | 7.07 | Trivandrum -> Chennai |
+| Bengaluru | 0 |  |
+| Delhi | 12.97 | Indore -> Delhi |
+| Guwahati | 15.56 | Kanpur -> Guwahati |
+| Gorakhpur | 14.12 | Gorakhpur |
+| Kanpur | 9.28 | Kanpur |
+| Kalkota | 14.49 | Trivandrum -> Kalkota |
+| Bhubaneswar | 12.6 | Trivandrum -> Bhubaneswar |
+| Hyderabad | 9.53 | Pune -> Hyderabad |

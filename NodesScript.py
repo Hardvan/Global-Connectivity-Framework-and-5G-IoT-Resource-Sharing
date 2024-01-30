@@ -361,22 +361,38 @@ def bellmanFord(nodes, midpoint, region_name):
             adjacency_list[name].append(
                 [neighbour_name, latency])
 
-    # Change Tokyo to Singapore as 1000000.12 to check bellman ford
-    adjacency_list["Tokyo"][0][1] = 1000000.12
-
     # Save the Adjacency List in a text file
     # Separate table for each node
     # Each table will have columns: Neighbour Name, Latency
     with open("bellman.md", "w") as file:
         file.write(f"# Bellman Ford for {region_name} Region\n\n")
+
+        file.write(f"No. of Nodes: {len(nodes)}\n\n")
+
         for name in adjacency_list:
-            file.write(f"## Adjacency List for {name} Node\n")
+            file.write(f"## Adjacency List for {name} Node\n\n")
             file.write("| Neighbour Name | Latency (ms) |\n")
             file.write("| --- | --- |\n")
             for neighbour_name, latency in adjacency_list[name]:
                 file.write(f"| {neighbour_name} | {latency} |\n")
             file.write("\n")
     print("✅ Adjacency List saved in bellman.md")
+
+    # To check bellman ford algorithm, make half of the latencies from source to neighbours as a large number
+    for i in range(len(adjacency_list[source_node_name])):
+        if random.randint(0, 1) == 1:
+            adjacency_list[source_node_name][i][1] = round(10000 *
+                                                           random.uniform(1, 10), 2)
+
+    # Append the Adjacency List for the Source Node in a text file
+    with open("bellman.md", "a") as file:
+        file.write(
+            f"## Adjacency List for Source Node: '{source_node_name}' after converting ~ 50% of latencies to a large number\n\n")
+        file.write("| Neighbour Name | Latency (ms) |\n")
+        file.write("| --- | --- |\n")
+        for neighbour_name, latency in adjacency_list[source_node_name]:
+            file.write(f"| {neighbour_name} | {latency} |\n")
+        file.write("\n")
 
     # 3. Apply Bellman Ford Algorithm
     # 3.1. Initialize distance of all nodes to infinity
@@ -407,16 +423,13 @@ def bellmanFord(nodes, midpoint, region_name):
                 print("❌ Negative Weight Cycle Exists")
                 return
 
-    # 4. Plot the Graph
-    node_id_list = [nodes[name]["Node ID"] for name in nodes]
-    distance_list = [distance[name] for name in nodes]
+    # Round all distances to 2 decimal places
+    for name in nodes:
+        distance[name] = round(distance[name], 2)
 
-    plotGraph(x=node_id_list, y=distance_list,
-              x_name="Node ID", y_name="Distance (ms)",
-              color="blue", title=f"Distance v/s Node ID Bar Chart for {region_name} Region",
-              region_name=region_name)
+    print("✅ Bellman Ford Algorithm Applied")
 
-    # 5. Append the shortest path in bellman.md
+    # 4. Append the shortest path in bellman.md
     print("Shortest Path from Source Node to all Nodes:")
     with open("bellman.md", "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
@@ -425,7 +438,6 @@ def bellmanFord(nodes, midpoint, region_name):
         for name in nodes:
             file.write(
                 f"| {name} | {distance[name]} | {' -> '.join(path[name])} |\n")
-            print(f"{name} : {distance[name]}")
     print("✅ Shortest Path saved in bellman.md")
 
 
