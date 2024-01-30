@@ -361,6 +361,9 @@ def bellmanFord(nodes, midpoint, region_name):
             adjacency_list[name].append(
                 [neighbour_name, latency])
 
+    # Change Tokyo to Singapore as 1000000.12 to check bellman ford
+    adjacency_list["Tokyo"][0][1] = 1000000.12
+
     # Save the Adjacency List in a text file
     # Separate table for each node
     # Each table will have columns: Neighbour Name, Latency
@@ -384,12 +387,18 @@ def bellmanFord(nodes, midpoint, region_name):
     # 3.2. Distance of source node to itself is 0
     distance[source_node_name] = 0
 
-    # 3.3. Relax all edges |V| - 1 times
+    # 3.3. Initialize path to reach each neighbor
+    path = {}
+    for name in nodes:
+        path[name] = []
+
+    # 3.4. Relax all edges |V| - 1 times
     for _ in range(len(nodes) - 1):
         for name in nodes:
             for neighbour_name, latency in adjacency_list[name]:
                 if distance[name] != float("inf") and distance[name] + latency < distance[neighbour_name]:
                     distance[neighbour_name] = distance[name] + latency
+                    path[neighbour_name] = path[name] + [neighbour_name]
 
     # 3.4. Check for negative-weight cycles
     for name in nodes:
@@ -411,10 +420,11 @@ def bellmanFord(nodes, midpoint, region_name):
     print("Shortest Path from Source Node to all Nodes:")
     with open("bellman.md", "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
-        file.write("| Node Name | Distance (ms) |\n")
-        file.write("| --- | --- |\n")
+        file.write("| Node Name | Distance (ms) | Path |\n")
+        file.write("| --- | --- | --- |\n")
         for name in nodes:
-            file.write(f"| {name} | {distance[name]} |\n")
+            file.write(
+                f"| {name} | {distance[name]} | {' -> '.join(path[name])} |\n")
             print(f"{name} : {distance[name]}")
     print("✅ Shortest Path saved in bellman.md")
 

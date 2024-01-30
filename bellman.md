@@ -165,7 +165,7 @@
 ## Adjacency List for Tokyo Node
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 31.3 |
+| Jakarta | 1000000.12 |
 | Perth | 51.05 |
 | Singapore | 26.3 |
 | Kuala Lumpur | 25.53 |
@@ -271,20 +271,20 @@
 | Bangkok | 14.44 |
 
 ## Shortest Path from Source Node to all Nodes
-| Node Name | Distance (ms) |
-| --- | --- |
-| Jakarta | 31.3 |
-| Perth | 51.05 |
-| Singapore | 26.3 |
-| Kuala Lumpur | 25.53 |
-| Sydney | 52.0 |
-| Auckland | 56.9 |
-| New Delhi | 34.3 |
-| Mumbai | 35.29 |
-| Seoul | 9.63 |
-| Tokyo | 0 |
-| Taipei | 8.18 |
-| Hong Kong | 11.42 |
-| Manila | 15.72 |
-| Bangkok | 19.95 |
-| Chenai | 31.0 |
+| Node Name | Distance (ms) | Path |
+| --- | --- | --- |
+| Jakarta | 31.41 | Taipei -> Jakarta |
+| Perth | 51.05 | Perth |
+| Singapore | 26.3 | Singapore |
+| Kuala Lumpur | 25.53 | Kuala Lumpur |
+| Sydney | 52.0 | Sydney |
+| Auckland | 56.9 | Auckland |
+| New Delhi | 34.3 | New Delhi |
+| Mumbai | 35.29 | Mumbai |
+| Seoul | 9.63 | Seoul |
+| Tokyo | 0 |  |
+| Taipei | 8.18 | Taipei |
+| Hong Kong | 11.42 | Hong Kong |
+| Manila | 15.72 | Manila |
+| Bangkok | 19.95 | Bangkok |
+| Chenai | 31.0 | Chenai |
