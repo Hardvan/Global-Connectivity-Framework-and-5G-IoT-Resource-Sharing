@@ -408,12 +408,12 @@ def bellmanFord(nodes, midpoint, region_name):
     for neighbour_name, latency in adjacency_list[source_node_name]:
         old_distance[neighbour_name] = latency
 
-    # 3.3. Initialize path to reach each neighbor
+    # 3.4. Initialize path to reach each neighbor
     path = {}
     for name in nodes:
         path[name] = []
 
-    # 3.4. Relax all edges |V| - 1 times
+    # 3.5. Relax all edges |V| - 1 times
     for _ in range(len(nodes) - 1):
         for name in nodes:
             for neighbour_name, latency in adjacency_list[name]:
@@ -421,20 +421,21 @@ def bellmanFord(nodes, midpoint, region_name):
                     distance[neighbour_name] = distance[name] + latency
                     path[neighbour_name] = path[name] + [neighbour_name]
 
-    # 3.4. Check for negative-weight cycles
+    # 3.6. Check for negative-weight cycles
     for name in nodes:
         for neighbour_name, latency in adjacency_list[name]:
             if distance[name] != float("inf") and distance[name] + latency < distance[neighbour_name]:
                 print("❌ Negative Weight Cycle Exists")
                 return
 
-    # Round all distances to 2 decimal places
+    # 3.7. Round all distances to 2 decimal places
     for name in nodes:
         distance[name] = round(distance[name], 2)
 
     print("✅ Bellman Ford Algorithm Applied")
 
     # 4. Append the shortest path in bellman.md
+    # Columns: Node Name, New Distance (ms), Old Distance (ms), Path
     print("Shortest Path from Source Node to all Nodes:")
     with open("bellman.md", "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
