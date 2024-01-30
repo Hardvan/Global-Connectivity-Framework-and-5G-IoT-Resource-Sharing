@@ -403,6 +403,11 @@ def bellmanFord(nodes, midpoint, region_name):
     # 3.2. Distance of source node to itself is 0
     distance[source_node_name] = 0
 
+    # 3.3 Save old distance from source node to neighbour latency
+    old_distance = {}
+    for neighbour_name, latency in adjacency_list[source_node_name]:
+        old_distance[neighbour_name] = latency
+
     # 3.3. Initialize path to reach each neighbor
     path = {}
     for name in nodes:
@@ -433,11 +438,12 @@ def bellmanFord(nodes, midpoint, region_name):
     print("Shortest Path from Source Node to all Nodes:")
     with open("bellman.md", "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
-        file.write("| Node Name | Distance (ms) | Path |\n")
-        file.write("| --- | --- | --- |\n")
+        file.write(
+            "| Node Name | New Distance (ms) | Old Distance (ms) | Path |\n")
+        file.write("| --- | --- | --- | --- |\n")
         for name in nodes:
             file.write(
-                f"| {name} | {distance[name]} | {' -> '.join(path[name])} |\n")
+                f"| {name} | {distance[name]} | {old_distance.get(name, 0)} | {' -> '.join(path[name])} |\n")
     print("✅ Shortest Path saved in bellman.md")
 
 

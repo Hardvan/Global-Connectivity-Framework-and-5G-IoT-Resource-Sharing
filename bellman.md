@@ -287,40 +287,40 @@ No. of Nodes: 15
 | Kalkota | 6.28 |
 | Bhubaneswar | 4.69 |
 
-## Adjacency List for Source Node: Bengaluru after converting 50% of latencies to a large number
+## Adjacency List for Source Node: 'Bengaluru' after converting ~ 50% of latencies to a large number
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
 | Pune | 5.82 |
-| Indore | 8.32 |
+| Indore | 86578.12 |
 | Trivandrum | 3.33 |
-| Mumbai | 6.7 |
+| Mumbai | 66587.3 |
 | Ahmedabad | 9.88 |
-| Jaipur | 11.87 |
-| Chennai | 10633.55 |
-| Delhi | 64933.1 |
-| Guwahati | 90542.87 |
-| Gorakhpur | 14.12 |
+| Jaipur | 34888.38 |
+| Chennai | 1.91 |
+| Delhi | 57032.81 |
+| Guwahati | 10.94 |
+| Gorakhpur | 10938.11 |
 | Kanpur | 9.28 |
-| Kalkota | 73845.51 |
-| Bhubaneswar | 91593.09 |
-| Hyderabad | 68670.63 |
+| Kalkota | 8.35 |
+| Bhubaneswar | 6.47 |
+| Hyderabad | 77896.31 |
 
 ## Shortest Path from Source Node to all Nodes
-| Node Name | Distance (ms) | Path |
-| --- | --- | --- |
-| Pune | 5.82 | Pune |
-| Indore | 8.32 | Indore |
-| Trivandrum | 3.33 | Trivandrum |
-| Mumbai | 6.7 | Mumbai |
-| Ahmedabad | 9.88 | Ahmedabad |
-| Jaipur | 11.87 | Jaipur |
-| Chennai | 7.07 | Trivandrum -> Chennai |
-| Bengaluru | 0 |  |
-| Delhi | 12.97 | Indore -> Delhi |
-| Guwahati | 15.56 | Kanpur -> Guwahati |
-| Gorakhpur | 14.12 | Gorakhpur |
-| Kanpur | 9.28 | Kanpur |
-| Kalkota | 14.49 | Trivandrum -> Kalkota |
-| Bhubaneswar | 12.6 | Trivandrum -> Bhubaneswar |
-| Hyderabad | 9.53 | Pune -> Hyderabad |
+| Node Name | New Distance (ms) | Old Distance (ms) | Path |
+| --- | --- | --- | --- |
+| Pune | 5.82 | 5.82 | Pune |
+| Indore | 8.92 | 86578.12 | Pune -> Indore |
+| Trivandrum | 3.33 | 3.33 | Trivandrum |
+| Mumbai | 6.75 | 66587.3 | Pune -> Mumbai |
+| Ahmedabad | 9.88 | 9.88 | Ahmedabad |
+| Jaipur | 12.27 | 34888.38 | Pune -> Jaipur |
+| Chennai | 1.91 | 1.91 | Chennai |
+| Bengaluru | 0 | 0 |  |
+| Delhi | 13.46 | 57032.81 | Pune -> Delhi |
+| Guwahati | 10.94 | 10.94 | Guwahati |
+| Gorakhpur | 14.44 | 10938.11 | Pune -> Gorakhpur |
+| Kanpur | 9.28 | 9.28 | Kanpur |
+| Kalkota | 8.35 | 8.35 | Kalkota |
+| Bhubaneswar | 6.47 | 6.47 | Bhubaneswar |
+| Hyderabad | 5.91 | 77896.31 | Chennai -> Hyderabad |
