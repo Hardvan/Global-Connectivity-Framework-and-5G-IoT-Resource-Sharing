@@ -306,21 +306,104 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region
     plt.show()  # Display the plot
 
 
+def bellmanFord(nodes, midpoint, region_name):
+    """Shortest path from user selected source to all nodes in the region
+
+    Args:
+        nodes (dict): Dictionary of Nodes
+        midpoint (dict): Dictionary of Midpoint
+        region_name (str): Name of the Region
+
+    Algorithm:
+    1. Ask user for source node (display all nodes & their ids)
+    2. Create adjacency list for all nodes in the format: {node: [[neighbour1, weight1], [neighbour2, weight2]]}
+    3. Apply Bellman Ford Algorithm
+    4. Plot the Graph
+    5. Print the Shortest Path
+    """
+
+    # Node ID -> Name mapping
+    node_id_to_name = {nodes[name]["Node ID"]: name for name in nodes}
+
+    # Name -> Node ID mapping
+    name_to_node_id = {name: nodes[name]["Node ID"] for name in nodes}
+
+    # 1. Ask user for source node (display all nodes & their ids)
+    print("Select Source Node:")
+    for name in nodes:
+        print(f"{nodes[name]['Node ID']} : {name}")
+
+    source_node_id = int(input("Enter Node ID: "))
+    source_node_name = node_id_to_name[source_node_id]
+
+    print(
+        f"Selected Source Node: {source_node_name} (Node ID: {source_node_id})")
+
+    # 2. Create adjacency list for all nodes in the format:
+    # {node: [[neighbour1, weight1], [neighbour2, weight2]]}
+    adjacency_list = {}
+    for name in nodes:
+
+        adjacency_list[name] = []
+
+        # Getting Latency for each Node
+        for neighbour_name in nodes:
+
+            if name != neighbour_name:
+
+                longitude = nodes[name]["Longitude"]
+                latitude = nodes[name]["Latitude"]
+                mid_longitude = midpoint["Longitude"]
+                mid_latitude = midpoint["Latitude"]
+
+                latency = getLatency(
+                    longitude, latitude, mid_longitude, mid_latitude)
+
+                adjacency_list[name].append(
+                    [neighbour_name, latency])
+
+    # Save the Adjacency List in a text file
+    # Separate table for each node
+    # Each table will have columns: Neighbour Name, Latency
+    with open("adj_list.txt", "w") as file:
+        for name in adjacency_list:
+            file.write(f"Adjacency List for {name} Node:\n")
+            file.write("Neighbour Name\t\tLatency\n")
+            for neighbour_name, latency in adjacency_list[name]:
+                file.write(f"{neighbour_name}\t\t{latency}\n")
+            file.write("\n")
+
+    # 3. Apply Bellman Ford Algorithm
+
+
 # Starting Point of the Program
 def main():
+
+    do_latency = False  # ? True/False to plot Latency Graphs
+    do_load = False  # ? True/False to plot Load Graphs
+    do_bellman_ford = True  # ? True/False to apply Bellman Ford Algorithm
 
     # Getting Region Details
     nodes, midpoint, region_name = Regions.getData()
 
     # Plotting Graph for Latency and Clusters
-    node_id_list, latency_ratio_list = doRegion(nodes, midpoint, region_name)
+    if do_latency:
+        node_id_list, latency_ratio_list = doRegion(
+            nodes, midpoint, region_name)
 
     # For Load and Load Ratio
-    load_ratio_list = doLoad(nodes, midpoint, region_name)
+    if do_load:
+        load_ratio_list = doLoad(nodes, midpoint, region_name)
 
     # Plotting Multi Bar Chart for Latency & Load
-    plotLatencyAndLoad(node_id_list, latency_ratio_list,
-                       load_ratio_list, region_name)
+    if do_latency and do_load:
+        plotLatencyAndLoad(node_id_list, latency_ratio_list,
+                           load_ratio_list, region_name)
+
+    # Applying Bellman Ford Algorithm
+    if do_bellman_ford:
+        print("Applying Bellman Ford Algorithm...")
+        bellmanFord(nodes, midpoint, region_name)
 
 
 if __name__ == "__main__":
