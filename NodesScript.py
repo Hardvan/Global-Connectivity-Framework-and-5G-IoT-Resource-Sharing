@@ -380,7 +380,7 @@ def bellmanFord(nodes, midpoint, region_name):
 
     # To check bellman ford algorithm, make half of the latencies from source to neighbours as a large number
     for i in range(len(adjacency_list[source_node_name])):
-        if random.randint(0, 1) == 1: # 50% chance
+        if random.randint(0, 1) == 1:  # 50% chance
             adjacency_list[source_node_name][i][1] = round(10000 *
                                                            random.uniform(1, 10), 2)
 
@@ -436,7 +436,6 @@ def bellmanFord(nodes, midpoint, region_name):
 
     # 4. Append the shortest path in bellman.md
     # Columns: Node Name, New Distance (ms), Old Distance (ms), Path
-    print("Shortest Path from Source Node to all Nodes:")
     with open("bellman.md", "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
         file.write(
