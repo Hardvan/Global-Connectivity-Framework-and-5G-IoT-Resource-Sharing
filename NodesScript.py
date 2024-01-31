@@ -446,6 +446,40 @@ def bellmanFord(nodes, midpoint, region_name):
                 f"| {name} | {distance[name]} | {old_distance.get(name, 0)} | {' -> '.join(path[name])} |\n")
     print("✅ Shortest Path saved in bellman.md")
 
+    # 5. Draw a graph with nodes and edges, and highlight the shortest path
+    # 5.1. Create a graph
+    graph = {}
+    for name in nodes:
+        graph[name] = {}
+        for neighbour_name, latency in adjacency_list[name]:
+            graph[name][neighbour_name] = latency
+
+    # 5.2. Draw the graph
+    import networkx as nx
+    import matplotlib.pyplot as plt
+
+    G = nx.DiGraph()
+    for name in graph:
+        for neighbour_name in graph[name]:
+            G.add_edge(name, neighbour_name,
+                       weight=graph[name][neighbour_name])
+
+    pos = nx.spring_layout(G)
+
+    # 5.3. Draw and save the graph
+    plt.figure(figsize=(12, 8))  # Increase the figure size
+    nx.draw_networkx_nodes(G, pos, node_size=500)
+    nx.draw_networkx_labels(G, pos, font_size=8)  # Decrease the font size
+    nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='black')
+    nx.draw_networkx_edge_labels(
+        G, pos, edge_labels=nx.get_edge_attributes(G, 'weight'), font_size=8)  # Decrease the font size
+
+    global GRAPH_NO
+    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_BellmanFord.png")
+    GRAPH_NO += 1
+
+    plt.show()
+
 
 # Starting Point of the Program
 def main():
