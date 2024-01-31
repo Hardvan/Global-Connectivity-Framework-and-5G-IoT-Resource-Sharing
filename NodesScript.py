@@ -324,6 +324,8 @@ def bellmanFord(nodes, midpoint, region_name):
 
     print("Applying Bellman Ford Algorithm...")
 
+    FILE_NAME = "bellman.md"
+
     # Node ID -> Name, Name -> Node ID mapping
     node_id_to_name = {nodes[name]["Node ID"]: name for name in nodes}
     name_to_node_id = {name: nodes[name]["Node ID"] for name in nodes}
@@ -385,7 +387,7 @@ def bellmanFord(nodes, midpoint, region_name):
                                                            random.uniform(1, 10), 2)
 
     # Append the Adjacency List for the Source Node in a text file
-    with open("bellman.md", "a") as file:
+    with open(FILE_NAME, "a") as file:
         file.write(
             f"## Adjacency List for Source Node: '{source_node_name}' after converting ~ 50% of latencies to a large number\n\n")
         file.write("| Neighbour Name | Latency (ms) |\n")
@@ -436,7 +438,7 @@ def bellmanFord(nodes, midpoint, region_name):
 
     # 4. Append the shortest path in bellman.md
     # Columns: Node Name, New Distance (ms), Old Distance (ms), Path
-    with open("bellman.md", "a") as file:
+    with open(FILE_NAME, "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
         file.write(
             "| Node Name | New Distance (ms) | Old Distance (ms) | Path |\n")
