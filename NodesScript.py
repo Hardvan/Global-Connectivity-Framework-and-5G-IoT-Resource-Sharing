@@ -369,15 +369,26 @@ def bellmanFord(nodes, midpoint, region_name):
     with open("bellman.md", "w") as file:
         file.write(f"# Bellman Ford for {region_name} Region\n\n")
 
+        file.write(
+            f"Source Node: {source_node_name} (Node ID: {source_node_id})\n\n")
         file.write(f"No. of Nodes: {len(nodes)}\n\n")
 
         for name in adjacency_list:
             file.write(f"## Adjacency List for {name} Node\n\n")
-            file.write("| Neighbour Name | Latency (ms) |\n")
-            file.write("| --- | --- |\n")
+            file.write("<table>\n")
+            file.write("<tr>\n")
+            file.write("  <th>Neighbour Name</th>\n")
             for neighbour_name, latency in adjacency_list[name]:
-                file.write(f"| {neighbour_name} | {latency} |\n")
+                file.write(f"  <td>{neighbour_name}</td>\n")
+            file.write("</tr>\n")
+            file.write("<tr>\n")
+            file.write("  <th>Latency (ms)</th>\n")
+            for neighbour_name, latency in adjacency_list[name]:
+                file.write(f"  <td>{latency}</td>\n")
+            file.write("</tr>\n")
+            file.write("</table>\n")
             file.write("\n")
+
     print("✅ Adjacency List saved in bellman.md")
 
     # To check bellman ford algorithm, make half of the latencies from source to neighbours as a large number
