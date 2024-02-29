@@ -4,7 +4,9 @@ Source Node: Bengaluru (Node ID: 8)
 
 No. of Nodes: 15
 
-## Adjacency List for Pune Node
+## Adjacency Lists
+
+### Pune Node
 
 <table>
 <tr>
@@ -43,7 +45,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Indore Node
+### Indore Node
 
 <table>
 <tr>
@@ -82,7 +84,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Trivandrum Node
+### Trivandrum Node
 
 <table>
 <tr>
@@ -121,7 +123,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Mumbai Node
+### Mumbai Node
 
 <table>
 <tr>
@@ -160,7 +162,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Ahmedabad Node
+### Ahmedabad Node
 
 <table>
 <tr>
@@ -199,7 +201,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Jaipur Node
+### Jaipur Node
 
 <table>
 <tr>
@@ -238,7 +240,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Chennai Node
+### Chennai Node
 
 <table>
 <tr>
@@ -277,7 +279,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Bengaluru Node
+### Bengaluru Node
 
 <table>
 <tr>
@@ -316,7 +318,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Delhi Node
+### Delhi Node
 
 <table>
 <tr>
@@ -355,7 +357,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Guwahati Node
+### Guwahati Node
 
 <table>
 <tr>
@@ -394,7 +396,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Gorakhpur Node
+### Gorakhpur Node
 
 <table>
 <tr>
@@ -433,7 +435,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Kanpur Node
+### Kanpur Node
 
 <table>
 <tr>
@@ -472,7 +474,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Kalkota Node
+### Kalkota Node
 
 <table>
 <tr>
@@ -511,7 +513,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Bhubaneswar Node
+### Bhubaneswar Node
 
 <table>
 <tr>
@@ -550,7 +552,7 @@ No. of Nodes: 15
 </tr>
 </table>
 
-## Adjacency List for Hyderabad Node
+### Hyderabad Node
 
 <table>
 <tr>
@@ -592,38 +594,37 @@ No. of Nodes: 15
 ## Adjacency List for Source Node: 'Bengaluru' after converting ~ 50% of latencies to a large number
 
 | Neighbour Name | Latency (ms) |
-| -------------- | ------------ |
-| Pune           | 5.82         |
-| Indore         | 8.32         |
-| Trivandrum     | 3.33         |
-| Mumbai         | 70401.38     |
-| Ahmedabad      | 27045.66     |
-| Jaipur         | 51956.9      |
-| Chennai        | 41576.82     |
-| Delhi          | 12.93        |
-| Guwahati       | 86720.17     |
-| Gorakhpur      | 14.12        |
-| Kanpur         | 45686.04     |
-| Kalkota        | 11366.26     |
-| Bhubaneswar    | 82545.26     |
-| Hyderabad      | 3.29         |
+| --- | --- |
+| Pune | 91807.98 |
+| Indore | 72633.91 |
+| Trivandrum | 47774.83 |
+| Mumbai | 12638.0 |
+| Ahmedabad | 69125.07 |
+| Jaipur | 11.87 |
+| Chennai | 47316.95 |
+| Delhi | 15395.96 |
+| Guwahati | 27435.12 |
+| Gorakhpur | 11267.87 |
+| Kanpur | 9.28 |
+| Kalkota | 70839.67 |
+| Bhubaneswar | 10190.39 |
+| Hyderabad | 3.29 |
 
 ## Shortest Path from Source Node to all Nodes
-
-| Node Name   | New Distance (ms) | Old Distance (ms) | Path                     |
-| ----------- | ----------------- | ----------------- | ------------------------ |
-| Pune        | 5.82              | 5.82              | Pune                     |
-| Indore      | 8.32              | 8.32              | Indore                   |
-| Trivandrum  | 3.33              | 3.33              | Trivandrum               |
-| Mumbai      | 6.75              | 70401.38          | Pune -> Mumbai           |
-| Ahmedabad   | 9.91              | 27045.66          | Pune -> Ahmedabad        |
-| Jaipur      | 11.87             | 51956.9           | Indore -> Jaipur         |
-| Chennai     | 7.07              | 41576.82          | Trivandrum -> Chennai    |
-| Bengaluru   | 0                 | 0                 |                          |
-| Delhi       | 12.93             | 12.93             | Delhi                    |
-| Guwahati    | 11.82             | 86720.17          | Hyderabad -> Guwahati    |
-| Gorakhpur   | 14.12             | 14.12             | Gorakhpur                |
-| Kanpur      | 9.29              | 45686.04          | Hyderabad -> Kanpur      |
-| Kalkota     | 9.57              | 11366.26          | Hyderabad -> Kalkota     |
-| Bhubaneswar | 7.98              | 82545.26          | Hyderabad -> Bhubaneswar |
-| Hyderabad   | 3.29              | 3.29              | Hyderabad                |
+| Node Name | Old Distance (ms) | New Distance (ms) | Path |
+| --- | --- | --- | --- |
+| Pune | 91807.98 | 7.0 | Hyderabad -> Pune |
+| Indore | 72633.91 | 8.67 | Hyderabad -> Indore |
+| Trivandrum | 47774.83 | 9.9 | Hyderabad -> Trivandrum |
+| Mumbai | 12638.0 | 7.92 | Hyderabad -> Mumbai |
+| Ahmedabad | 69125.07 | 10.59 | Hyderabad -> Ahmedabad |
+| Jaipur | 11.87 | 11.87 | Jaipur |
+| Chennai | 47316.95 | 7.29 | Hyderabad -> Chennai |
+| Bengaluru | 0 | 0 |  |
+| Delhi | 15395.96 | 13.13 | Hyderabad -> Delhi |
+| Guwahati | 27435.12 | 11.82 | Hyderabad -> Guwahati |
+| Gorakhpur | 11267.87 | 14.12 | Jaipur -> Gorakhpur |
+| Kanpur | 9.28 | 9.28 | Kanpur |
+| Kalkota | 70839.67 | 9.57 | Hyderabad -> Kalkota |
+| Bhubaneswar | 10190.39 | 7.98 | Hyderabad -> Bhubaneswar |
+| Hyderabad | 3.29 | 3.29 | Hyderabad |

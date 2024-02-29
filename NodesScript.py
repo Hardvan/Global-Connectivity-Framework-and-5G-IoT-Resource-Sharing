@@ -374,8 +374,9 @@ def bellmanFord(nodes, midpoint, region_name):
             f"Source Node: {source_node_name} (Node ID: {source_node_id})\n\n")
         file.write(f"No. of Nodes: {len(nodes)}\n\n")
 
+        file.write("## Adjacency Lists\n\n")
         for name in adjacency_list:
-            file.write(f"## Adjacency List for {name} Node\n\n")
+            file.write(f"### {name} Node\n\n")
             file.write("<table>\n")
             file.write("<tr>\n")
             file.write("  <th>Neighbour Name</th>\n")
@@ -453,11 +454,11 @@ def bellmanFord(nodes, midpoint, region_name):
     with open(FILE_NAME, "a") as file:
         file.write("## Shortest Path from Source Node to all Nodes\n")
         file.write(
-            "| Node Name | New Distance (ms) | Old Distance (ms) | Path |\n")
+            "| Node Name | Old Distance (ms) | New Distance (ms) | Path |\n")
         file.write("| --- | --- | --- | --- |\n")
         for name in nodes:
             file.write(
-                f"| {name} | {distance[name]} | {old_distance.get(name, 0)} | {' -> '.join(path[name])} |\n")
+                f"| {name} | {old_distance.get(name, 0)} | {distance[name]} | {' -> '.join(path[name])} |\n")
     print("✅ Shortest Path saved in bellman.md")
 
     # 5. Draw a graph with nodes and edges, and highlight the shortest path
@@ -481,7 +482,7 @@ def bellmanFord(nodes, midpoint, region_name):
     pos = nx.spring_layout(G)
 
     # 5.3. Draw and save the graph
-    plt.figure(figsize=(12, 8))  # Increase the figure size
+    plt.figure(figsize=(20, 20), dpi=100)
     nx.draw_networkx_nodes(G, pos, node_size=500)
     nx.draw_networkx_labels(G, pos, font_size=8)  # Decrease the font size
     nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='black')
@@ -495,249 +496,12 @@ def bellmanFord(nodes, midpoint, region_name):
     plt.show()
 
 
-def bfs(residual_capacity, source_node_name, sink_node_name, path):
-    """Breadth First Search to find path from source node to sink node
-
-    Args:
-        residual_capacity (dict): Dictionary of Residual Capacity
-        source_node_name (str): Name of Source Node
-        sink_node_name (str): Name of Sink Node
-        path (dict): Dictionary of Path
-
-    Returns:
-        bool: True if path exists from source node to sink node, False otherwise
-    """
-
-    # 1. Initialize visited nodes to False
-    visited = {}
-    for name in residual_capacity:
-        visited[name] = False
-
-    # 2. Initialize queue
-    queue = []
-
-    # 3. Add source node to queue
-    queue.append(source_node_name)
-
-    # 4. Mark source node as visited
-    visited[source_node_name] = True
-
-    # 5. While queue is not empty
-    while queue:
-
-        # 5.1. Dequeue a node from queue
-        node_name = queue.pop(0)
-
-        # 5.2. For all neighbours of the dequeued node
-        for neighbour_name in residual_capacity[node_name]:
-
-            # 5.2.1. If neighbour is not visited and residual capacity is greater than 0
-            if visited[neighbour_name] == False and residual_capacity[node_name][neighbour_name] > 0:
-
-                queue.append(neighbour_name)
-                visited[neighbour_name] = True
-                path[neighbour_name] = path[node_name] + [neighbour_name]
-
-    # 6. Return True if sink node is visited, False otherwise
-    return visited[sink_node_name]
-
-
-# TODO: Fix Ford Fulkerson Algorithm
-def fordFulkerson(nodes, midpoint, region_name):
-    """Maximum flow (load) in the network region from user selected source (s) to user selected sink (t)
-
-    Args:
-        nodes (dict): Dictionary of Nodes
-        midpoint (dict): Dictionary of Midpoint
-        region_name (str): Name of the Region
-
-    Algorithm:
-    1. Ask user for source node (display all nodes & their ids)
-    2. Ask user for sink node (display all nodes & their ids) (except source node)
-    3. Assign loads to each node
-    4. Create adjacency list for all nodes in the format: {node: {neighbour1: capacity1, neighbour2: capacity2}}
-        4.1 Calculate capacity for each edge by using the following formula:
-            4.1.1 Calculate load for each node:
-                lower, upper = getLowerAndUpper()
-                nodes[name]["Lower Limit"] = lower
-                nodes[name]["Upper Limit"] = upper
-                load = getLoad(lower, upper)
-                nodes[name]["Load"] = load
-            4.1.2 Calculate capacity for each edge:
-                capacity of edge a -> b = min(load of a, load of b)
-        4.2 Delete incoming edges to source node and outgoing edges from sink node
-    5. Apply Ford Fulkerson Algorithm
-    6. Append the maximum flow in ford.md
-    7. Draw a graph with nodes and edges, and highlight the maximum flow (sankey diagram)
-    """
-
-    # Modofy the nodes dictionary to 5 nodes (more than 5 nodes will make Ford Fulkerson Algorithm very slow)
-    nodes = {name: nodes[name]
-             for name in nodes if nodes[name]["Node ID"] in [1, 2, 3, 4, 5]}
-
-    print("Nodes:", nodes)
-
-    print("Applying Ford Fulkerson Algorithm...")
-
-    FILE_NAME = "ford.md"
-
-    # Node ID -> Name, Name -> Node ID mapping
-    node_id_to_name = {nodes[name]["Node ID"]: name for name in nodes}
-    name_to_node_id = {name: nodes[name]["Node ID"] for name in nodes}
-
-    # 1. Ask user for source node (display all nodes & their ids)
-    print("Select Source Node (s):")
-    for name in nodes:
-        print(f"{nodes[name]['Node ID']} : {name}")
-    source_node_id = int(input("Enter Node ID: "))
-    source_node_name = node_id_to_name[source_node_id]
-    print(
-        f"Selected Source Node: {source_node_name} (Node ID: {source_node_id})")
-
-    # 2. Ask user for sink node (display all nodes & their ids) (except source node)
-    print("Select Sink Node (t):")
-    for name in nodes:
-        if name == source_node_name:  # skip source node
-            continue
-        print(f"{nodes[name]['Node ID']} : {name}")
-    sink_node_id = int(input("Enter Node ID: "))
-    sink_node_name = node_id_to_name[sink_node_id]
-    print(
-        f"Selected Sink Node: {sink_node_name} (Node ID: {sink_node_id})")
-
-    # 3. Assign loads to each node
-    for name in nodes:
-        lower, upper = getLowerAndUpper()
-        nodes[name]["Lower Limit"] = lower
-        nodes[name]["Upper Limit"] = upper
-        load = getLoad(lower, upper)
-        nodes[name]["Load"] = load
-
-    # 4. Create adjacency list for all nodes in the format:
-    # {node: {neighbour1: capacity1, neighbour2: capacity2}}
-    adjacency_list = {}
-    for name in nodes:
-        adjacency_list[name] = {}
-        for neighbour_name in nodes:
-
-            if name == neighbour_name:  # Skip if same node
-                continue
-            if neighbour_name == source_node_name:  # Skip incoming edges to source node
-                continue
-            if name == sink_node_name:  # Skip outgoing edges from sink node
-                continue
-            # Skip antiparallel edges
-            if neighbour_name in adjacency_list and name in adjacency_list[neighbour_name]:
-                continue
-
-            capacity = min(nodes[name]["Load"], nodes[neighbour_name]["Load"])
-
-            # name : {neighbour_name : capacity}
-            adjacency_list[name][neighbour_name] = capacity
-
-    # Save the Adjacency List in a markdown file
-    # Separate table for each node
-    # Each table will have columns: Neighbour Name, Capacity
-    with open("ford.md", "w") as file:
-        file.write(f"# Ford Fulkerson for {region_name} Region\n\n")
-
-        file.write(
-            f"Source Node: {source_node_name} (Node ID: {source_node_id})\n\n")
-        file.write(
-            f"Sink Node: {sink_node_name} (Node ID: {sink_node_id})\n\n")
-        file.write(f"No. of Nodes: {len(nodes)}\n\n")
-
-        for name in adjacency_list:
-            file.write(f"## Adjacency List for {name} Node\n\n")
-            file.write("<table>\n")
-            file.write("<tr>\n")
-            file.write("  <th>Neighbour Name</th>\n")
-            for neighbour_name in adjacency_list[name]:
-                file.write(f"  <td>{neighbour_name}</td>\n")
-            file.write("</tr>\n")
-            file.write("<tr>\n")
-            file.write("  <th>Capacity (mbps)</th>\n")
-            for neighbour_name in adjacency_list[name]:
-                file.write(
-                    f"  <td>{adjacency_list[name][neighbour_name]}</td>\n")
-            file.write("</tr>\n")
-            file.write("</table>\n")
-            file.write("\n")
-
-    print("✅ Adjacency List saved in ford.md")
-
-    # 5. Apply Ford Fulkerson Algorithm
-    # 5.1. Initialize flow of all edges to 0
-    flow = {}
-    for name in nodes:
-        flow[name] = {}
-        for neighbour_name in nodes:
-            flow[name][neighbour_name] = 0
-
-    # 5.2. Initialize residual capacity of all edges to capacity
-    residual_capacity = {}
-    for name in nodes:
-        residual_capacity[name] = {}
-        for neighbour_name in nodes:
-            residual_capacity[name][neighbour_name] = adjacency_list[name].get(
-                neighbour_name, 0)
-
-    # 5.3. Initialize path to reach each neighbor
-    path = {}
-    for name in nodes:
-        path[name] = []
-
-    # 5.4. Initialize max flow to 0
-    max_flow = 0
-
-    # 5.5. While there is a path from source to sink
-    while bfs(residual_capacity, source_node_name, sink_node_name, path):
-        # 5.5.1. Find minimum residual capacity of the edges along the path
-        min_residual_capacity = float("inf")
-        for neighbour_name in path[sink_node_name]:
-            min_residual_capacity = min(
-                min_residual_capacity, residual_capacity[neighbour_name][sink_node_name])
-
-        # 5.5.2. Update residual capacities of the edges and reverse edges along the path
-        for neighbour_name in path[sink_node_name]:
-            residual_capacity[neighbour_name][sink_node_name] -= min_residual_capacity
-            residual_capacity[sink_node_name][neighbour_name] += min_residual_capacity
-
-        # 5.5.3. Add path flow to overall flow
-        max_flow += min_residual_capacity
-
-        # 5.5.4. Update flow along the path
-        for neighbour_name in path[sink_node_name]:
-            flow[neighbour_name][sink_node_name] += min_residual_capacity
-            flow[sink_node_name][neighbour_name] -= min_residual_capacity
-
-        # 5.5.5. Reset path
-        path = {}
-        for name in nodes:
-            path[name] = []
-
-    print("✅ Ford Fulkerson Algorithm Applied")
-
-    # 6. Append the maximum flow in ford.md
-    # Columns: Source Node, Sink Node, Maximum Flow (mbps)
-    with open(FILE_NAME, "a") as file:
-        file.write("## Maximum Flow from Source Node to Sink Node\n")
-        file.write(
-            f"| Source Node | Sink Node | Maximum Flow (mbps) |\n")
-        file.write("| --- | --- | --- |\n")
-        file.write(
-            f"| {source_node_name} | {sink_node_name} | {max_flow} |\n")
-
-    print("✅ Maximum Flow saved in ford.md")
-
-
 # Starting Point of the Program
 def main():
 
     do_latency = False  # ? True/False to plot Latency Graphs
     do_load = False  # ? True/False to plot Load Graphs
     do_bellman_ford = True  # ? True/False to apply Bellman Ford Algorithm
-    do_ford_fulkerson = True  # ? True/False to apply Ford Fulkerson Algorithm
 
     # Getting Region Details
     nodes, midpoint, region_name = Regions.getData()
@@ -759,10 +523,6 @@ def main():
     # Applying Bellman Ford Algorithm
     if do_bellman_ford:
         bellmanFord(nodes, midpoint, region_name)
-
-    # Applying Ford Fulkerson Algorithm
-    if do_ford_fulkerson:
-        fordFulkerson(nodes, midpoint, region_name)
 
 
 if __name__ == "__main__":
