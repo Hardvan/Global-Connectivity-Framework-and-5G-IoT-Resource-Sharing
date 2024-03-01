@@ -77,3 +77,11 @@ The script generates various graphs to visualize network latency, load distribut
 ![Load Ratio vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/10_Load_Ratio_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
 ![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/11_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
 ![Latency and Load](Graphs/PPT%20Graphs/12_LatencyAndLoad.png)
+
+## Bellman-Ford Algorithm Applied to the Network
+
+The Bellman-Ford algorithm is applied to the network to find the shortest distance and the corresponding from the source node to all other nodes.
+
+![Bellman-Ford Algorithm](Graphs/PPT%20Graphs/1_BellmanFord.png)
+
+View [bellman.md](./bellman.md) for the detailed output of the Bellman-Ford algorithm.
