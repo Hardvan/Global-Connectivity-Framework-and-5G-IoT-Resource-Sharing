@@ -595,36 +595,36 @@ No. of Nodes: 15
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Pune | 28932.82 |
-| Indore | 37505.32 |
-| Trivandrum | 3.33 |
+| Pune | 5.82 |
+| Indore | 26771.57 |
+| Trivandrum | 29123.15 |
 | Mumbai | 6.7 |
-| Ahmedabad | 74628.96 |
-| Jaipur | 11.87 |
-| Chennai | 56654.53 |
-| Delhi | 95559.98 |
+| Ahmedabad | 44370.24 |
+| Jaipur | 65287.29 |
+| Chennai | 25780.51 |
+| Delhi | 12.93 |
 | Guwahati | 10.94 |
-| Gorakhpur | 14.12 |
-| Kanpur | 37206.35 |
-| Kalkota | 17487.28 |
-| Bhubaneswar | 69331.94 |
+| Gorakhpur | 57634.48 |
+| Kanpur | 9.28 |
+| Kalkota | 8.35 |
+| Bhubaneswar | 6.47 |
 | Hyderabad | 3.29 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Old Distance (ms) | New Distance (ms) | Path |
 | --- | --- | --- | --- |
-| Pune | 28932.82 | 7.0 | Hyderabad -> Pune |
-| Indore | 37505.32 | 8.67 | Hyderabad -> Indore |
-| Trivandrum | 3.33 | 3.33 | Trivandrum |
+| Pune | 5.82 | 5.82 | Pune |
+| Indore | 26771.57 | 8.67 | Hyderabad -> Indore |
+| Trivandrum | 29123.15 | 9.9 | Hyderabad -> Trivandrum |
 | Mumbai | 6.7 | 6.7 | Mumbai |
-| Ahmedabad | 74628.96 | 10.03 | Mumbai -> Ahmedabad |
-| Jaipur | 11.87 | 11.87 | Jaipur |
-| Chennai | 56654.53 | 7.07 | Trivandrum -> Chennai |
+| Ahmedabad | 44370.24 | 9.91 | Pune -> Ahmedabad |
+| Jaipur | 65287.29 | 12.16 | Hyderabad -> Jaipur |
+| Chennai | 25780.51 | 7.29 | Hyderabad -> Chennai |
 | Bengaluru | 0 | 0 |  |
-| Delhi | 95559.98 | 13.13 | Hyderabad -> Delhi |
+| Delhi | 12.93 | 12.93 | Delhi |
 | Guwahati | 10.94 | 10.94 | Guwahati |
-| Gorakhpur | 14.12 | 14.12 | Gorakhpur |
-| Kanpur | 37206.35 | 9.29 | Hyderabad -> Kanpur |
-| Kalkota | 17487.28 | 9.57 | Hyderabad -> Kalkota |
-| Bhubaneswar | 69331.94 | 7.98 | Hyderabad -> Bhubaneswar |
+| Gorakhpur | 57634.48 | 14.41 | Hyderabad -> Gorakhpur |
+| Kanpur | 9.28 | 9.28 | Kanpur |
+| Kalkota | 8.35 | 8.35 | Kalkota |
+| Bhubaneswar | 6.47 | 6.47 | Bhubaneswar |
 | Hyderabad | 3.29 | 3.29 | Hyderabad |
