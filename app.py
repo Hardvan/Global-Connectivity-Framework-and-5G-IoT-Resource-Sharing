@@ -19,7 +19,7 @@ def visualize():
     region_number = request.form['region']
     print(f"Region number: {region_number}")
 
-    folder_path, bellman_md = NodesScript.handler(region_number)
+    folder_path = NodesScript.handler(region_number)
 
     # Iterate over the images in the folder and add their paths to the list
     graph_images = []
@@ -31,8 +31,7 @@ def visualize():
     print(f"Graph images: {graph_images}")
 
     return render_template("index.html",
-                           graph_images=graph_images,
-                           bellman_md=bellman_md)
+                           graph_images=graph_images)
 
 
 if __name__ == "__main__":

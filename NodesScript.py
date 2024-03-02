@@ -492,7 +492,7 @@ def handler(region_number):
         region_number (int): Region Number
 
     Returns:
-        Folder where graphs are stored and path to markdown file
+        folder: Folder where graphs are stored
     """
 
     region_number = int(region_number)
@@ -502,9 +502,8 @@ def handler(region_number):
 
     region_name = region_name.replace(" ", "_")
     folder = f"static/Graphs/{region_name}"
-    bellman_md = "bellman.md"
 
-    return folder, bellman_md
+    return folder
 
 
 # Starting Point of the Program
