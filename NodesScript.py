@@ -27,13 +27,14 @@ import os
 # Custom Modules
 import Regions
 from Metrics import *
+from distribute import selection_sort, linear_sort
 
 
 # GLOBAL VARIABLES
 GRAPH_NO = 1  # For naming the Graphs
 
 
-def plotGraph(x, y, x_name, y_name, color, title, region_name):
+def plotGraph(x, y, x_name, y_name, color, title, region_name, fig_size=(8, 6)):
 
     # x-coordinates of left sides of bars
     left = list(range(1, len(x)+1))
@@ -43,6 +44,7 @@ def plotGraph(x, y, x_name, y_name, color, title, region_name):
     # Labels for bars: x_name
 
     # Plotting a Bar Chart
+    plt.figure(figsize=fig_size)
     plt.bar(left, y, tick_label=x,
             width=0.8, color=[color])
 
@@ -169,40 +171,31 @@ def doRegion(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Latency: {threshold}")
-
-    for i in range(len(latency_ratio_list)):
-
-        ratio = latency_ratio_list[i]
-
-        if ratio >= threshold:  # Ratio exceeds threshold value, then exchange
-
-            difference = ratio - threshold
-
-            # Find the least ratio and its index
-            least_ratio = min(latency_ratio_list)
-            least_ratio_index = latency_ratio_list.index(least_ratio)
-
-            if least_ratio + difference <= 0.75:  # Distributing Load only if Lower Bar after addition is < threshold
-                ratio -= difference
-                least_ratio += difference
-            else:
-                print("❌ Cannot Distribute Load in this Region")
-                print("Continuing anyway...")
-
-            # Updating
-            latency_ratio_list[i] = ratio
-            latency_ratio_list[least_ratio_index] = least_ratio
+    latency_ratio_list_selection_sort = selection_sort(
+        latency_ratio_list, threshold)
+    latency_ratio_list_linear_sort = linear_sort(latency_ratio_list, threshold)
 
     """ Plotting the Normalized Latency Ratio Graph """
 
-    plotGraph(x=node_id_list, y=latency_ratio_list,
+    # Selection Sort
+    plotGraph(x=node_id_list, y=latency_ratio_list_selection_sort,
               x_name="Node ID", y_name="Latency Ratio",
-              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region",
-              region_name=region_name)
+              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
+              region_name=region_name, fig_size=(12, 8))
 
-    print("Max Value of Normalized Latency is:", max(latency_ratio_list))
+    print(
+        f"Max Value of Normalized Latency using Selection Sort is: {max(latency_ratio_list_selection_sort)}")
 
-    return node_id_list, latency_ratio_list
+    # Linear Sort
+    plotGraph(x=node_id_list, y=latency_ratio_list_linear_sort,
+              x_name="Node ID", y_name="Latency Ratio",
+              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
+              region_name=region_name, fig_size=(12, 8))
+
+    print(
+        f"Max Value of Normalized Latency using Linear Sort is: {max(latency_ratio_list_linear_sort)}")
+
+    return node_id_list, latency_ratio_list_selection_sort
 
 
 def doLoad(nodes, midpoint, region_name):
@@ -248,36 +241,30 @@ def doLoad(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Load: {threshold}")
-
-    for i in range(len(load_ratio_list)):
-
-        ratio = load_ratio_list[i]
-
-        if ratio >= threshold:  # Ratio exceeds threshold value, then exchange
-
-            difference = ratio - threshold
-
-            least_ratio = min(load_ratio_list)
-            least_ratio_index = load_ratio_list.index(least_ratio)
-
-            if least_ratio + difference <= 0.75:    # Distributing Load only if Lower Bar after addition is < threshold
-                ratio -= difference
-                least_ratio += difference
-
-            # Updating
-            load_ratio_list[i] = ratio
-            load_ratio_list[least_ratio_index] = least_ratio
+    load_ratio_list_selection_sort = selection_sort(load_ratio_list, threshold)
+    load_ratio_list_linear_sort = linear_sort(load_ratio_list, threshold)
 
     """ Plotting the Normalized Load Ratio Graph """
 
-    plotGraph(x=node_id_list, y=load_ratio_list,
+    # Selection Sort
+    plotGraph(x=node_id_list, y=load_ratio_list_selection_sort,
               x_name="Node ID", y_name="Load Ratio",
-              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region",
-              region_name=region_name)
+              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
+              region_name=region_name, fig_size=(12, 8))
 
-    print("Max Value of Normalized Load is:", max(load_ratio_list))
+    print(
+        f"Max Value of Normalized Load using Selection Sort is: {max(load_ratio_list_selection_sort)}")
 
-    return load_ratio_list
+    # Linear Sort
+    plotGraph(x=node_id_list, y=load_ratio_list_linear_sort,
+              x_name="Node ID", y_name="Load Ratio",
+              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
+              region_name=region_name, fig_size=(12, 8))
+
+    print(
+        f"Max Value of Normalized Load using Linear Sort is: {max(load_ratio_list_linear_sort)}")
+
+    return load_ratio_list_selection_sort
 
 
 def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region_name):
@@ -500,8 +487,8 @@ def bellmanFord(nodes, midpoint, region_name):
 # Starting Point of the Program
 def main():
 
-    do_latency = False  # ? True/False to plot Latency Graphs
-    do_load = False  # ? True/False to plot Load Graphs
+    do_latency = True  # ? True/False to plot Latency Graphs
+    do_load = True  # ? True/False to plot Load Graphs
     do_bellman_ford = True  # ? True/False to apply Bellman Ford Algorithm
 
     # Getting Region Details
