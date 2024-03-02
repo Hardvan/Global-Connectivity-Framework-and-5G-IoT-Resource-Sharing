@@ -69,8 +69,8 @@ def linear_sort(ratio_list, threshold=0.75):
     2. Iterate over the list of ratios
         2.1 if ratio >= threshold, then add the excess (ratio - threshold) to the buffer, set the ratio to threshold.
     3. Iterate over the list of ratios
-        3.1 if ratio < threshold, then add that much from the buffer to the ratio such that new_ratio = 70% of threshold (soft limit).
-    4. If some amount is still left in buffer, then again iterate over the list of ratios and add the remaining buffer to the ratios, even if they reach 100% of threshold (hard limit).
+        3.1 if ratio < threshold, then add that much from the buffer to the ratio such that new_ratio < threshold.
+    4. If some amount is still left in buffer, then not possible to distribute the ratios.
     4. Return the updated ratio list.
 
     Args
@@ -90,25 +90,16 @@ def linear_sort(ratio_list, threshold=0.75):
             buffer += ratio_list[i] - threshold
             ratio_list[i] = threshold
 
-    for i in range(n):
-        if ratio_list[i] < threshold:
-            required = 0.7 * threshold - ratio_list[i]  # Soft Limit
-            if buffer > required:
-                ratio_list[i] += required
-                buffer -= required
-            else:
-                ratio_list[i] += buffer
-                buffer = 0
-
     if buffer > 0:
         for i in range(n):
-            required = threshold - ratio_list[i]
-            if buffer > required:
-                ratio_list[i] += required
-                buffer -= required
-            else:
-                ratio_list[i] += buffer
-                buffer = 0
+            if ratio_list[i] < threshold:
+                required = threshold - ratio_list[i]
+                if buffer >= required:
+                    ratio_list[i] = threshold
+                    buffer -= required
+                else:
+                    ratio_list[i] += buffer
+                    buffer = 0
 
     if buffer > 0:
         print("❌ Buffer is still not empty. Some ratios is still left to be distributed.")

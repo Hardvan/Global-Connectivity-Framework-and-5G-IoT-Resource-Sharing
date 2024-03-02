@@ -1,125 +1,281 @@
-# Bellman Ford for ERNET Region
+# Bellman Ford for BT Asia Pacific Region
 
-Source Node: Bengaluru (Node ID: 8)
+Source Node: Singapore (Node ID: 3)
 
 No. of Nodes: 15
 
 ## Adjacency Lists
 
-### Pune Node
+### Jakarta Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Indore</td>
-  <td>Trivandrum</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>3.1</td>
-  <td>8.65</td>
-  <td>0.93</td>
-  <td>4.09</td>
-  <td>6.45</td>
-  <td>7.26</td>
-  <td>5.82</td>
-  <td>7.64</td>
-  <td>10.74</td>
-  <td>8.62</td>
-  <td>5.86</td>
-  <td>9.09</td>
-  <td>7.9</td>
-  <td>3.71</td>
+  <td>19.85</td>
+  <td>5.81</td>
+  <td>7.72</td>
+  <td>24.93</td>
+  <td>33.65</td>
+  <td>38.39</td>
+  <td>33.38</td>
+  <td>32.54</td>
+  <td>31.3</td>
+  <td>23.23</td>
+  <td>21.01</td>
+  <td>17.33</td>
+  <td>16.04</td>
+  <td>25.2</td>
 </tr>
 </table>
 
-### Indore Node
+### Perth Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Trivandrum</td>
+  <td>Jakarta</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>3.1</td>
-  <td>11.44</td>
-  <td>2.84</td>
-  <td>2.33</td>
-  <td>3.55</td>
-  <td>9.37</td>
-  <td>8.32</td>
-  <td>4.65</td>
-  <td>9.54</td>
-  <td>5.8</td>
-  <td>3.56</td>
-  <td>8.65</td>
-  <td>8.07</td>
-  <td>5.38</td>
+  <td>19.85</td>
+  <td>24.83</td>
+  <td>25.97</td>
+  <td>20.27</td>
+  <td>31.02</td>
+  <td>50.07</td>
+  <td>43.45</td>
+  <td>51.26</td>
+  <td>51.05</td>
+  <td>42.91</td>
+  <td>40.34</td>
+  <td>37.03</td>
+  <td>33.68</td>
+  <td>36.39</td>
 </tr>
 </table>
 
-### Trivandrum Node
+### Singapore Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>8.65</td>
-  <td>11.44</td>
-  <td>9.43</td>
-  <td>12.73</td>
-  <td>14.97</td>
-  <td>3.74</td>
-  <td>3.33</td>
-  <td>16.08</td>
-  <td>13.85</td>
-  <td>17.2</td>
-  <td>12.61</td>
-  <td>11.16</td>
-  <td>9.27</td>
-  <td>6.61</td>
+  <td>5.81</td>
+  <td>24.83</td>
+  <td>2.18</td>
+  <td>30.52</td>
+  <td>38.79</td>
+  <td>33.5</td>
+  <td>29.04</td>
+  <td>26.85</td>
+  <td>26.3</td>
+  <td>18.12</td>
+  <td>15.54</td>
+  <td>13.89</td>
+  <td>10.27</td>
+  <td>20.92</td>
+</tr>
+</table>
+
+### Kuala Lumpur Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>7.72</td>
+  <td>25.97</td>
+  <td>2.18</td>
+  <td>32.59</td>
+  <td>40.95</td>
+  <td>31.32</td>
+  <td>26.92</td>
+  <td>25.39</td>
+  <td>25.53</td>
+  <td>17.36</td>
+  <td>14.44</td>
+  <td>14.3</td>
+  <td>8.34</td>
+  <td>18.81</td>
+</tr>
+</table>
+
+### Sydney Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>24.93</td>
+  <td>20.27</td>
+  <td>30.52</td>
+  <td>32.59</td>
+  <td>10.82</td>
+  <td>62.94</td>
+  <td>57.35</td>
+  <td>55.81</td>
+  <td>52.0</td>
+  <td>44.92</td>
+  <td>43.95</td>
+  <td>36.28</td>
+  <td>40.76</td>
+  <td>49.33</td>
+</tr>
+</table>
+
+### Auckland Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>33.65</td>
+  <td>31.02</td>
+  <td>38.79</td>
+  <td>40.95</td>
+  <td>10.82</td>
+  <td>72.04</td>
+  <td>66.85</td>
+  <td>62.1</td>
+  <td>56.9</td>
+  <td>50.69</td>
+  <td>50.45</td>
+  <td>41.53</td>
+  <td>48.71</td>
+  <td>58.72</td>
+</tr>
+</table>
+
+### New Delhi Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>38.39</td>
+  <td>50.07</td>
+  <td>33.5</td>
+  <td>31.32</td>
+  <td>62.94</td>
+  <td>72.04</td>
+  <td>7.14</td>
+  <td>25.27</td>
+  <td>34.3</td>
+  <td>31.52</td>
+  <td>28.48</td>
+  <td>38.02</td>
+  <td>24.73</td>
+  <td>13.82</td>
 </tr>
 </table>
 
@@ -128,503 +284,347 @@ No. of Nodes: 15
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>0.93</td>
-  <td>2.84</td>
-  <td>9.43</td>
-  <td>3.33</td>
-  <td>5.9</td>
-  <td>8.18</td>
-  <td>6.7</td>
+  <td>33.38</td>
+  <td>43.45</td>
+  <td>29.04</td>
+  <td>26.92</td>
+  <td>57.35</td>
+  <td>66.85</td>
   <td>7.14</td>
-  <td>11.3</td>
-  <td>8.0</td>
-  <td>6.04</td>
-  <td>9.8</td>
-  <td>8.7</td>
-  <td>4.63</td>
-</tr>
-</table>
-
-### Ahmedabad Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>4.09</td>
-  <td>2.33</td>
-  <td>12.73</td>
-  <td>3.33</td>
-  <td>2.92</td>
-  <td>11.18</td>
-  <td>9.88</td>
-  <td>4.19</td>
-  <td>11.74</td>
-  <td>4.78</td>
-  <td>5.55</td>
-  <td>10.97</td>
-  <td>10.38</td>
-  <td>7.3</td>
-</tr>
-</table>
-
-### Jaipur Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>6.45</td>
-  <td>3.55</td>
-  <td>14.97</td>
-  <td>5.9</td>
-  <td>2.92</td>
-  <td>12.87</td>
-  <td>11.87</td>
-  <td>1.27</td>
-  <td>10.95</td>
-  <td>2.25</td>
-  <td>4.8</td>
-  <td>10.87</td>
-  <td>10.79</td>
-  <td>8.87</td>
-</tr>
-</table>
-
-### Chennai Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>7.26</td>
-  <td>9.37</td>
-  <td>3.74</td>
+  <td>27.26</td>
+  <td>35.29</td>
+  <td>30.92</td>
+  <td>27.39</td>
+  <td>35.92</td>
+  <td>21.7</td>
   <td>8.18</td>
-  <td>11.18</td>
-  <td>12.87</td>
-  <td>1.91</td>
-  <td>13.82</td>
-  <td>10.13</td>
-  <td>15.12</td>
-  <td>9.65</td>
-  <td>7.43</td>
-  <td>5.55</td>
-  <td>4.0</td>
 </tr>
 </table>
 
-### Bengaluru Node
+### Seoul Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>5.82</td>
-  <td>8.32</td>
-  <td>3.33</td>
-  <td>6.7</td>
-  <td>9.88</td>
-  <td>11.87</td>
-  <td>1.91</td>
-  <td>12.93</td>
-  <td>10.94</td>
-  <td>14.12</td>
+  <td>32.54</td>
+  <td>51.26</td>
+  <td>26.85</td>
+  <td>25.39</td>
+  <td>55.81</td>
+  <td>62.1</td>
+  <td>25.27</td>
+  <td>27.26</td>
+  <td>9.63</td>
+  <td>11.59</td>
+  <td>11.86</td>
+  <td>20.86</td>
+  <td>17.7</td>
+  <td>24.56</td>
+</tr>
+</table>
+
+### Tokyo Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>31.3</td>
+  <td>51.05</td>
+  <td>26.3</td>
+  <td>25.53</td>
+  <td>52.0</td>
+  <td>56.9</td>
+  <td>34.3</td>
+  <td>35.29</td>
+  <td>9.63</td>
+  <td>8.18</td>
+  <td>11.42</td>
+  <td>15.72</td>
+  <td>19.95</td>
+  <td>31.0</td>
+</tr>
+</table>
+
+### Taipei Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>23.23</td>
+  <td>42.91</td>
+  <td>18.12</td>
+  <td>17.36</td>
+  <td>44.92</td>
+  <td>50.69</td>
+  <td>31.52</td>
+  <td>30.92</td>
+  <td>11.59</td>
+  <td>8.18</td>
+  <td>3.89</td>
   <td>9.28</td>
-  <td>8.35</td>
-  <td>6.47</td>
-  <td>3.29</td>
+  <td>12.45</td>
+  <td>25.27</td>
 </tr>
 </table>
 
-### Delhi Node
+### Hong Kong Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>7.64</td>
-  <td>4.65</td>
-  <td>16.08</td>
-  <td>7.14</td>
-  <td>4.19</td>
-  <td>1.27</td>
-  <td>13.82</td>
-  <td>12.93</td>
-  <td>10.95</td>
-  <td>1.52</td>
-  <td>5.12</td>
-  <td>11.19</td>
-  <td>11.31</td>
-  <td>9.84</td>
-</tr>
-</table>
-
-### Guwahati Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>10.74</td>
-  <td>9.54</td>
-  <td>13.85</td>
-  <td>11.3</td>
-  <td>11.74</td>
-  <td>10.95</td>
-  <td>10.13</td>
-  <td>10.94</td>
-  <td>10.95</td>
-  <td>12.43</td>
-  <td>6.28</td>
-  <td>2.72</td>
-  <td>4.59</td>
-  <td>8.53</td>
-</tr>
-</table>
-
-### Gorakhpur Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>8.62</td>
-  <td>5.8</td>
-  <td>17.2</td>
-  <td>8.0</td>
-  <td>4.78</td>
-  <td>2.25</td>
-  <td>15.12</td>
-  <td>14.12</td>
-  <td>1.52</td>
-  <td>12.43</td>
-  <td>6.63</td>
-  <td>12.71</td>
-  <td>12.81</td>
-  <td>11.12</td>
-</tr>
-</table>
-
-### Kanpur Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>5.86</td>
-  <td>3.56</td>
-  <td>12.61</td>
-  <td>6.04</td>
-  <td>5.55</td>
-  <td>4.8</td>
-  <td>9.65</td>
-  <td>9.28</td>
-  <td>5.12</td>
-  <td>6.28</td>
-  <td>6.63</td>
-  <td>6.09</td>
-  <td>6.24</td>
-  <td>6.0</td>
-</tr>
-</table>
-
-### Kalkota Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
-  <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Bhubaneswar</td>
-  <td>Hyderabad</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>9.09</td>
+  <td>21.01</td>
+  <td>40.34</td>
+  <td>15.54</td>
+  <td>14.44</td>
+  <td>43.95</td>
+  <td>50.45</td>
+  <td>28.48</td>
+  <td>27.39</td>
+  <td>11.86</td>
+  <td>11.42</td>
+  <td>3.89</td>
+  <td>10.21</td>
   <td>8.65</td>
-  <td>11.16</td>
-  <td>9.8</td>
-  <td>10.97</td>
-  <td>10.87</td>
-  <td>7.43</td>
-  <td>8.35</td>
-  <td>11.19</td>
-  <td>2.72</td>
-  <td>12.71</td>
-  <td>6.09</td>
-  <td>1.9</td>
-  <td>6.28</td>
+  <td>21.46</td>
 </tr>
 </table>
 
-### Bhubaneswar Node
+### Manila Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Hyderabad</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Bangkok</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>7.9</td>
-  <td>8.07</td>
-  <td>9.27</td>
-  <td>8.7</td>
-  <td>10.38</td>
-  <td>10.79</td>
-  <td>5.55</td>
-  <td>6.47</td>
-  <td>11.31</td>
-  <td>4.59</td>
-  <td>12.81</td>
-  <td>6.24</td>
-  <td>1.9</td>
-  <td>4.69</td>
+  <td>17.33</td>
+  <td>37.03</td>
+  <td>13.89</td>
+  <td>14.3</td>
+  <td>36.28</td>
+  <td>41.53</td>
+  <td>38.02</td>
+  <td>35.92</td>
+  <td>20.86</td>
+  <td>15.72</td>
+  <td>9.28</td>
+  <td>10.21</td>
+  <td>14.44</td>
+  <td>28.88</td>
 </tr>
 </table>
 
-### Hyderabad Node
+### Bangkok Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Pune</td>
-  <td>Indore</td>
-  <td>Trivandrum</td>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
   <td>Mumbai</td>
-  <td>Ahmedabad</td>
-  <td>Jaipur</td>
-  <td>Chennai</td>
-  <td>Bengaluru</td>
-  <td>Delhi</td>
-  <td>Guwahati</td>
-  <td>Gorakhpur</td>
-  <td>Kanpur</td>
-  <td>Kalkota</td>
-  <td>Bhubaneswar</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Chenai</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>3.71</td>
-  <td>5.38</td>
-  <td>6.61</td>
-  <td>4.63</td>
-  <td>7.3</td>
-  <td>8.87</td>
-  <td>4.0</td>
-  <td>3.29</td>
-  <td>9.84</td>
-  <td>8.53</td>
-  <td>11.12</td>
-  <td>6.0</td>
-  <td>6.28</td>
-  <td>4.69</td>
+  <td>16.04</td>
+  <td>33.68</td>
+  <td>10.27</td>
+  <td>8.34</td>
+  <td>40.76</td>
+  <td>48.71</td>
+  <td>24.73</td>
+  <td>21.7</td>
+  <td>17.7</td>
+  <td>19.95</td>
+  <td>12.45</td>
+  <td>8.65</td>
+  <td>14.44</td>
+  <td>14.44</td>
 </tr>
 </table>
 
-## Adjacency List for Source Node: 'Bengaluru' after converting ~ 50% of latencies to a large number
+### Chenai Node
+
+<table>
+<tr>
+  <th>Neighbour Name</th>
+  <td>Jakarta</td>
+  <td>Perth</td>
+  <td>Singapore</td>
+  <td>Kuala Lumpur</td>
+  <td>Sydney</td>
+  <td>Auckland</td>
+  <td>New Delhi</td>
+  <td>Mumbai</td>
+  <td>Seoul</td>
+  <td>Tokyo</td>
+  <td>Taipei</td>
+  <td>Hong Kong</td>
+  <td>Manila</td>
+  <td>Bangkok</td>
+</tr>
+<tr>
+  <th>Latency (ms)</th>
+  <td>25.2</td>
+  <td>36.39</td>
+  <td>20.92</td>
+  <td>18.81</td>
+  <td>49.33</td>
+  <td>58.72</td>
+  <td>13.82</td>
+  <td>8.18</td>
+  <td>24.56</td>
+  <td>31.0</td>
+  <td>25.27</td>
+  <td>21.46</td>
+  <td>28.88</td>
+  <td>14.44</td>
+</tr>
+</table>
+
+## Adjacency List for Source Node: 'Singapore' after converting ~ 50% of latencies to a large number
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Pune | 5.82 |
-| Indore | 8.32 |
-| Trivandrum | 69320.34 |
-| Mumbai | 72712.55 |
-| Ahmedabad | 49493.12 |
-| Jaipur | 95245.74 |
-| Chennai | 59301.49 |
-| Delhi | 88062.39 |
-| Guwahati | 10.94 |
-| Gorakhpur | 12192.13 |
-| Kanpur | 91689.88 |
-| Kalkota | 8.35 |
-| Bhubaneswar | 81207.13 |
-| Hyderabad | 74560.27 |
+| Jakarta | 64911.11 |
+| Perth | 85492.39 |
+| Kuala Lumpur | 35307.93 |
+| Sydney | 30.52 |
+| Auckland | 38.79 |
+| New Delhi | 32518.05 |
+| Mumbai | 32499.54 |
+| Seoul | 26.85 |
+| Tokyo | 52956.27 |
+| Taipei | 26262.56 |
+| Hong Kong | 96536.37 |
+| Manila | 74763.5 |
+| Bangkok | 10.27 |
+| Chenai | 50012.22 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Old Distance (ms) | New Distance (ms) | Path |
 | --- | --- | --- | --- |
-| Pune | 5.82 | 5.82 | Pune |
-| Indore | 8.32 | 8.32 | Indore |
-| Trivandrum | 69320.34 | 14.47 | Pune -> Trivandrum |
-| Mumbai | 72712.55 | 6.75 | Pune -> Mumbai |
-| Ahmedabad | 49493.12 | 9.91 | Pune -> Ahmedabad |
-| Jaipur | 95245.74 | 11.87 | Indore -> Jaipur |
-| Chennai | 59301.49 | 13.08 | Pune -> Chennai |
-| Bengaluru | 0 | 0 |  |
-| Delhi | 88062.39 | 12.97 | Indore -> Delhi |
-| Guwahati | 10.94 | 10.94 | Guwahati |
-| Gorakhpur | 12192.13 | 14.12 | Indore -> Gorakhpur |
-| Kanpur | 91689.88 | 11.68 | Pune -> Kanpur |
-| Kalkota | 8.35 | 8.35 | Kalkota |
-| Bhubaneswar | 81207.13 | 10.25 | Kalkota -> Bhubaneswar |
-| Hyderabad | 74560.27 | 9.53 | Pune -> Hyderabad |
+| Jakarta | 64911.11 | 26.31 | Bangkok -> Jakarta |
+| Perth | 85492.39 | 43.95 | Bangkok -> Perth |
+| Singapore | 0 | 0 |  |
+| Kuala Lumpur | 35307.93 | 18.61 | Bangkok -> Kuala Lumpur |
+| Sydney | 30.52 | 30.52 | Sydney |
+| Auckland | 38.79 | 38.79 | Auckland |
+| New Delhi | 32518.05 | 35.0 | Bangkok -> New Delhi |
+| Mumbai | 32499.54 | 31.97 | Bangkok -> Mumbai |
+| Seoul | 26.85 | 26.85 | Seoul |
+| Tokyo | 52956.27 | 30.22 | Bangkok -> Tokyo |
+| Taipei | 26262.56 | 22.72 | Bangkok -> Taipei |
+| Hong Kong | 96536.37 | 18.92 | Bangkok -> Hong Kong |
+| Manila | 74763.5 | 24.71 | Bangkok -> Manila |
+| Bangkok | 10.27 | 10.27 | Bangkok |
+| Chenai | 50012.22 | 24.71 | Bangkok -> Chenai |

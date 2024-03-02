@@ -27,7 +27,7 @@ import os
 # Custom Modules
 import Regions
 from Metrics import *
-from distribute import selection_sort
+from distribute import selection_sort, linear_sort
 
 
 # GLOBAL VARIABLES
@@ -170,18 +170,31 @@ def doRegion(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Latency: {threshold}")
-    latency_ratio_list = selection_sort(latency_ratio_list, threshold)
+    latency_ratio_list_selection_sort = selection_sort(
+        latency_ratio_list, threshold)
+    latency_ratio_list_linear_sort = linear_sort(latency_ratio_list, threshold)
 
     """ Plotting the Normalized Latency Ratio Graph """
 
-    plotGraph(x=node_id_list, y=latency_ratio_list,
+    # Selection Sort
+    plotGraph(x=node_id_list, y=latency_ratio_list_selection_sort,
               x_name="Node ID", y_name="Latency Ratio",
-              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region",
+              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
               region_name=region_name)
 
-    print("Max Value of Normalized Latency is:", max(latency_ratio_list))
+    print(
+        f"Max Value of Normalized Latency using Selection Sort is: {max(latency_ratio_list_selection_sort)}")
 
-    return node_id_list, latency_ratio_list
+    # Linear Sort
+    plotGraph(x=node_id_list, y=latency_ratio_list_linear_sort,
+              x_name="Node ID", y_name="Latency Ratio",
+              color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
+              region_name=region_name)
+
+    print(
+        f"Max Value of Normalized Latency using Linear Sort is: {max(latency_ratio_list_linear_sort)}")
+
+    return node_id_list, latency_ratio_list_selection_sort
 
 
 def doLoad(nodes, midpoint, region_name):
@@ -227,18 +240,30 @@ def doLoad(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Load: {threshold}")
-    load_ratio_list = selection_sort(load_ratio_list, threshold)
+    load_ratio_list_selection_sort = selection_sort(load_ratio_list, threshold)
+    load_ratio_list_linear_sort = linear_sort(load_ratio_list, threshold)
 
     """ Plotting the Normalized Load Ratio Graph """
 
-    plotGraph(x=node_id_list, y=load_ratio_list,
+    # Selection Sort
+    plotGraph(x=node_id_list, y=load_ratio_list_selection_sort,
               x_name="Node ID", y_name="Load Ratio",
-              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region",
+              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
               region_name=region_name)
 
-    print("Max Value of Normalized Load is:", max(load_ratio_list))
+    print(
+        f"Max Value of Normalized Load using Selection Sort is: {max(load_ratio_list_selection_sort)}")
 
-    return load_ratio_list
+    # Linear Sort
+    plotGraph(x=node_id_list, y=load_ratio_list_linear_sort,
+              x_name="Node ID", y_name="Load Ratio",
+              color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
+              region_name=region_name)
+
+    print(
+        f"Max Value of Normalized Load using Linear Sort is: {max(load_ratio_list_linear_sort)}")
+
+    return load_ratio_list_selection_sort
 
 
 def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region_name):
