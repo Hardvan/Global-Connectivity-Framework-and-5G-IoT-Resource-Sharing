@@ -489,15 +489,23 @@
 
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
-        <h1>Let's visualise</h1>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Select the Region of your choice</option>
-          <option value="1">Region 1: BT Asia-Pacific region</option>
-          <option value="2">Region 2: Quest region</option>
-          <option value="3">Region 3: TATA region</option>
-          <option value="4">Region 4: ERNET region</option>
-          <option value="5">Region 5: PERN region</option>
-        </select>
+        <form action="/visualize" method="POST">
+          <h1>Let's visualise</h1>
+          <label for="region">Select the region of your choice</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="region"
+          >
+            <option selected>Select the Region of your choice</option>
+            <option value="1">Region 1: BT Asia-Pacific region</option>
+            <option value="2">Region 2: Quest region</option>
+            <option value="3">Region 3: TATA region</option>
+            <option value="4">Region 4: ERNET region</option>
+            <option value="5">Region 5: PERN region</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Visualize</button>
+        </form>
       </div>
     </section>
 
