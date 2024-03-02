@@ -34,7 +34,7 @@ from distribute import selection_sort, linear_sort
 GRAPH_NO = 1  # For naming the Graphs
 
 
-def plotGraph(x, y, x_name, y_name, color, title, region_name):
+def plotGraph(x, y, x_name, y_name, color, title, region_name, fig_size=(8, 6)):
 
     # x-coordinates of left sides of bars
     left = list(range(1, len(x)+1))
@@ -44,6 +44,7 @@ def plotGraph(x, y, x_name, y_name, color, title, region_name):
     # Labels for bars: x_name
 
     # Plotting a Bar Chart
+    plt.figure(figsize=fig_size)
     plt.bar(left, y, tick_label=x,
             width=0.8, color=[color])
 
@@ -180,7 +181,7 @@ def doRegion(nodes, midpoint, region_name):
     plotGraph(x=node_id_list, y=latency_ratio_list_selection_sort,
               x_name="Node ID", y_name="Latency Ratio",
               color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
-              region_name=region_name)
+              region_name=region_name, fig_size=(12, 8))
 
     print(
         f"Max Value of Normalized Latency using Selection Sort is: {max(latency_ratio_list_selection_sort)}")
@@ -189,7 +190,7 @@ def doRegion(nodes, midpoint, region_name):
     plotGraph(x=node_id_list, y=latency_ratio_list_linear_sort,
               x_name="Node ID", y_name="Latency Ratio",
               color="Green", title=f"Normalised Latency Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
-              region_name=region_name)
+              region_name=region_name, fig_size=(12, 8))
 
     print(
         f"Max Value of Normalized Latency using Linear Sort is: {max(latency_ratio_list_linear_sort)}")
@@ -249,7 +250,7 @@ def doLoad(nodes, midpoint, region_name):
     plotGraph(x=node_id_list, y=load_ratio_list_selection_sort,
               x_name="Node ID", y_name="Load Ratio",
               color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Selection Sort)",
-              region_name=region_name)
+              region_name=region_name, fig_size=(12, 8))
 
     print(
         f"Max Value of Normalized Load using Selection Sort is: {max(load_ratio_list_selection_sort)}")
@@ -258,7 +259,7 @@ def doLoad(nodes, midpoint, region_name):
     plotGraph(x=node_id_list, y=load_ratio_list_linear_sort,
               x_name="Node ID", y_name="Load Ratio",
               color="green", title=f"Normalised Load Ratio v/s Node ID Bar Chart for {region_name} Region (Linear Sort)",
-              region_name=region_name)
+              region_name=region_name, fig_size=(12, 8))
 
     print(
         f"Max Value of Normalized Load using Linear Sort is: {max(load_ratio_list_linear_sort)}")

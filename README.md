@@ -72,16 +72,18 @@ The script generates various graphs to visualize network latency, load distribut
 ![Latency vs. Quadrant 3 Chart](Graphs/PPT%20Graphs/5_Latency_v_s_Quadrant_3_Chart.png)
 ![Latency vs. Quadrant 4 Chart](Graphs/PPT%20Graphs/6_Latency_v_s_Quadrant_4_Chart.png)
 ![Latency Ratio vs. Node ID for BT Asia Pacific Region](Graphs/PPT%20Graphs/7_Latency_Ratio_v_s_Node_ID_for_BT_Asia_Pacific_Region.png)
-![Normalized Latency Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/8_Normalised_Latency_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
-![Load vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/9_Load_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
-![Load Ratio vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/10_Load_Ratio_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
-![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/11_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region.png)
-![Latency and Load](Graphs/PPT%20Graphs/12_LatencyAndLoad.png)
+![Normalized Latency Ratio vs. Node ID Bar Chart for BT Asia Pacific Region (Selection Sort)](<Graphs/PPT%20Graphs/8_Normalised_Latency_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region_(Selection_Sort).png>)
+![Normalized Latency Ratio vs. Node ID Bar Chart for BT Asia Pacific Region (Linear Sort)](<Graphs/PPT%20Graphs/9_Normalised_Latency_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region_(Linear_Sort).png>)
+![Load vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/10_Load_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Load Ratio vs. Node Name Bar Chart for BT Asia Pacific Region](Graphs/PPT%20Graphs/11_Load_Ratio_v_s_Node_Name_Bar_Chart_for_BT_Asia_Pacific_Region.png)
+![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region (Selection Sort)](<Graphs/PPT%20Graphs/12_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region_(Selection_Sort).png>)
+![Normalized Load Ratio vs. Node ID Bar Chart for BT Asia Pacific Region (Linear Sort)](<Graphs/PPT%20Graphs/13_Normalised_Load_Ratio_v_s_Node_ID_Bar_Chart_for_BT_Asia_Pacific_Region_(Linear_Sort).png>)
+![Latency and Load](Graphs/PPT%20Graphs/14_LatencyAndLoad.png)
 
 ## Bellman-Ford Algorithm Applied to the Network
 
 The Bellman-Ford algorithm is applied to the network to find the shortest distance and the corresponding from the source node to all other nodes.
 
-![Bellman-Ford Algorithm](Graphs/PPT%20Graphs/1_BellmanFord.png)
+![Bellman-Ford Algorithm](Graphs/PPT%20Graphs/15_BellmanFord.png)
 
 View [bellman.md](./bellman.md) for the detailed output of the Bellman-Ford algorithm.

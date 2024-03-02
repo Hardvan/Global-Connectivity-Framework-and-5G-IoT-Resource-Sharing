@@ -595,36 +595,36 @@ No. of Nodes: 15
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 64911.11 |
-| Perth | 85492.39 |
-| Kuala Lumpur | 35307.93 |
-| Sydney | 30.52 |
+| Jakarta | 24028.71 |
+| Perth | 21687.81 |
+| Kuala Lumpur | 2.18 |
+| Sydney | 57293.04 |
 | Auckland | 38.79 |
-| New Delhi | 32518.05 |
-| Mumbai | 32499.54 |
-| Seoul | 26.85 |
-| Tokyo | 52956.27 |
-| Taipei | 26262.56 |
-| Hong Kong | 96536.37 |
-| Manila | 74763.5 |
-| Bangkok | 10.27 |
-| Chenai | 50012.22 |
+| New Delhi | 33.5 |
+| Mumbai | 29.04 |
+| Seoul | 29868.88 |
+| Tokyo | 79495.3 |
+| Taipei | 43231.17 |
+| Hong Kong | 15.54 |
+| Manila | 13.89 |
+| Bangkok | 86120.75 |
+| Chenai | 48134.46 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Old Distance (ms) | New Distance (ms) | Path |
 | --- | --- | --- | --- |
-| Jakarta | 64911.11 | 26.31 | Bangkok -> Jakarta |
-| Perth | 85492.39 | 43.95 | Bangkok -> Perth |
+| Jakarta | 24028.71 | 9.9 | Kuala Lumpur -> Jakarta |
+| Perth | 21687.81 | 28.15 | Kuala Lumpur -> Perth |
 | Singapore | 0 | 0 |  |
-| Kuala Lumpur | 35307.93 | 18.61 | Bangkok -> Kuala Lumpur |
-| Sydney | 30.52 | 30.52 | Sydney |
+| Kuala Lumpur | 2.18 | 2.18 | Kuala Lumpur |
+| Sydney | 57293.04 | 34.77 | Kuala Lumpur -> Sydney |
 | Auckland | 38.79 | 38.79 | Auckland |
-| New Delhi | 32518.05 | 35.0 | Bangkok -> New Delhi |
-| Mumbai | 32499.54 | 31.97 | Bangkok -> Mumbai |
-| Seoul | 26.85 | 26.85 | Seoul |
-| Tokyo | 52956.27 | 30.22 | Bangkok -> Tokyo |
-| Taipei | 26262.56 | 22.72 | Bangkok -> Taipei |
-| Hong Kong | 96536.37 | 18.92 | Bangkok -> Hong Kong |
-| Manila | 74763.5 | 24.71 | Bangkok -> Manila |
-| Bangkok | 10.27 | 10.27 | Bangkok |
-| Chenai | 50012.22 | 24.71 | Bangkok -> Chenai |
+| New Delhi | 33.5 | 33.5 | New Delhi |
+| Mumbai | 29.04 | 29.04 | Mumbai |
+| Seoul | 29868.88 | 27.4 | Hong Kong -> Seoul |
+| Tokyo | 79495.3 | 26.96 | Hong Kong -> Tokyo |
+| Taipei | 43231.17 | 19.43 | Hong Kong -> Taipei |
+| Hong Kong | 15.54 | 15.54 | Hong Kong |
+| Manila | 13.89 | 13.89 | Manila |
+| Bangkok | 86120.75 | 10.52 | Kuala Lumpur -> Bangkok |
+| Chenai | 48134.46 | 20.99 | Kuala Lumpur -> Chenai |
