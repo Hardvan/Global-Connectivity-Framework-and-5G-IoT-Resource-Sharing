@@ -509,6 +509,38 @@
       </div>
     </section>
 
+    <!-- ======= Results Section ======= -->
+    <!-- Use for loop to show each image-->
+    {% if graph_images %}
+    <section id="results" class="results">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Results</h2>
+        </div>
+        {% for i in graph_images %}
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="{{ i }}" class="img-fluid" alt="" />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %} {% if bellman_md %}
+    <section id="results" class="results">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Results</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <p>{{ bellman_md }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="footer-top">

@@ -414,6 +414,28 @@ def PERN_Region():
     return nodes, midpoint, region_name
 
 
+def getRegionName(region_number):
+    """Returns the name of the region based on the region number.
+
+    Args:
+        region_number (int): Number of the region.
+
+    Returns:
+        region_name (str): Name of the region.
+    """
+
+    if region_number == 1:
+        return "BT Asia Pacific"
+    elif region_number == 2:
+        return "Quest"
+    elif region_number == 3:
+        return "TATA"
+    elif region_number == 4:
+        return "ERNET"
+    elif region_number == 5:
+        return "PERN"
+
+
 def getData():
 
     choice = None

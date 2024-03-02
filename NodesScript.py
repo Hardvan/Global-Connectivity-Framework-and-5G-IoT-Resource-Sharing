@@ -52,14 +52,14 @@ def plotGraph(x, y, x_name, y_name, color, title, region_name, fig_size=(8, 6)):
     plt.ylabel(y_name)  # Naming the y-axis
     plt.title(title)  # Plot Title
 
-    # Save the Plot in Graphs/region_name folder
+    # Save the Plot in static/Graphs/region_name folder
     title = title.replace(" ", "_")
     title = title.replace("/", "_")
     region_name = region_name.replace(" ", "_")
     global GRAPH_NO
-    if not os.path.exists(f"Graphs/{region_name}"):
-        os.makedirs(f"Graphs/{region_name}")
-    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_{title}.png")
+    if not os.path.exists(f"static/Graphs/{region_name}"):
+        os.makedirs(f"static/Graphs/{region_name}")
+    plt.savefig(f"static/Graphs/{region_name}/{GRAPH_NO:02d}_{title}.png")
     GRAPH_NO += 1
 
     plt.show()  # Display the plot
@@ -285,9 +285,10 @@ def plotLatencyAndLoad(node_id_list, latency_ratio_list, load_ratio_list, region
     # Save the Plot in Graphs folder
     global GRAPH_NO
     region_name = region_name.replace(" ", "_")
-    if not os.path.exists(f"Graphs/{region_name}"):
-        os.makedirs(f"Graphs/{region_name}")
-    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_LatencyAndLoad.png")
+    if not os.path.exists(f"static/Graphs/{region_name}"):
+        os.makedirs(f"static/Graphs/{region_name}")
+    plt.savefig(
+        f"static/Graphs/{region_name}/{GRAPH_NO:02d}_LatencyAndLoad.png")
     GRAPH_NO += 1
 
     plt.show()  # Display the plot
@@ -478,18 +479,36 @@ def bellmanFord(nodes, midpoint, region_name):
 
     global GRAPH_NO
     region_name = region_name.replace(" ", "_")
-    plt.savefig(f"Graphs/{region_name}/{GRAPH_NO}_BellmanFord.png")
+    plt.savefig(f"static/Graphs/{region_name}/{GRAPH_NO:02d}_BellmanFord.png")
     GRAPH_NO += 1
 
     plt.show()
 
 
-# Starting Point of the Program
-def main():
+def handler(region_number):
+    """Handler for app.py
 
-    do_latency = True  # ? True/False to plot Latency Graphs
-    do_load = True  # ? True/False to plot Load Graphs
-    do_bellman_ford = True  # ? True/False to apply Bellman Ford Algorithm
+    Args:
+        region_number (int): Region Number
+
+    Returns:
+        Folder where graphs are stored and path to markdown file
+    """
+
+    region_number = int(region_number)
+
+    # Get region name from region number
+    region_name = Regions.getRegionName(region_number)
+
+    region_name = region_name.replace(" ", "_")
+    folder = f"static/Graphs/{region_name}"
+    bellman_md = "bellman.md"
+
+    return folder, bellman_md
+
+
+# Starting Point of the Program
+def main(do_latency=True, do_load=True, do_bellman_ford=True):
 
     # Getting Region Details
     nodes, midpoint, region_name = Regions.getData()

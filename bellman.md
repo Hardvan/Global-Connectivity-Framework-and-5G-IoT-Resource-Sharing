@@ -595,36 +595,36 @@ No. of Nodes: 15
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 24028.71 |
-| Perth | 21687.81 |
+| Jakarta | 5.81 |
+| Perth | 24.83 |
 | Kuala Lumpur | 2.18 |
-| Sydney | 57293.04 |
+| Sydney | 30.52 |
 | Auckland | 38.79 |
 | New Delhi | 33.5 |
-| Mumbai | 29.04 |
-| Seoul | 29868.88 |
-| Tokyo | 79495.3 |
-| Taipei | 43231.17 |
-| Hong Kong | 15.54 |
-| Manila | 13.89 |
-| Bangkok | 86120.75 |
-| Chenai | 48134.46 |
+| Mumbai | 26625.54 |
+| Seoul | 27581.43 |
+| Tokyo | 53643.92 |
+| Taipei | 46664.2 |
+| Hong Kong | 95537.93 |
+| Manila | 28792.33 |
+| Bangkok | 10.27 |
+| Chenai | 20.92 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Old Distance (ms) | New Distance (ms) | Path |
 | --- | --- | --- | --- |
-| Jakarta | 24028.71 | 9.9 | Kuala Lumpur -> Jakarta |
-| Perth | 21687.81 | 28.15 | Kuala Lumpur -> Perth |
+| Jakarta | 5.81 | 5.81 | Jakarta |
+| Perth | 24.83 | 24.83 | Perth |
 | Singapore | 0 | 0 |  |
 | Kuala Lumpur | 2.18 | 2.18 | Kuala Lumpur |
-| Sydney | 57293.04 | 34.77 | Kuala Lumpur -> Sydney |
+| Sydney | 30.52 | 30.52 | Sydney |
 | Auckland | 38.79 | 38.79 | Auckland |
 | New Delhi | 33.5 | 33.5 | New Delhi |
-| Mumbai | 29.04 | 29.04 | Mumbai |
-| Seoul | 29868.88 | 27.4 | Hong Kong -> Seoul |
-| Tokyo | 79495.3 | 26.96 | Hong Kong -> Tokyo |
-| Taipei | 43231.17 | 19.43 | Hong Kong -> Taipei |
-| Hong Kong | 15.54 | 15.54 | Hong Kong |
-| Manila | 13.89 | 13.89 | Manila |
-| Bangkok | 86120.75 | 10.52 | Kuala Lumpur -> Bangkok |
-| Chenai | 48134.46 | 20.99 | Kuala Lumpur -> Chenai |
+| Mumbai | 26625.54 | 29.1 | Kuala Lumpur -> Mumbai |
+| Seoul | 27581.43 | 27.57 | Kuala Lumpur -> Seoul |
+| Tokyo | 53643.92 | 27.71 | Kuala Lumpur -> Tokyo |
+| Taipei | 46664.2 | 19.54 | Kuala Lumpur -> Taipei |
+| Hong Kong | 95537.93 | 16.62 | Kuala Lumpur -> Hong Kong |
+| Manila | 28792.33 | 16.48 | Kuala Lumpur -> Manila |
+| Bangkok | 10.27 | 10.27 | Bangkok |
+| Chenai | 20.92 | 20.92 | Chenai |
