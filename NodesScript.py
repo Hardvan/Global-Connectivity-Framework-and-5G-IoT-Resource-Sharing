@@ -27,6 +27,7 @@ import os
 # Custom Modules
 import Regions
 from Metrics import *
+from distribute import selection_sort
 
 
 # GLOBAL VARIABLES
@@ -169,29 +170,7 @@ def doRegion(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Latency: {threshold}")
-
-    for i in range(len(latency_ratio_list)):
-
-        ratio = latency_ratio_list[i]
-
-        if ratio >= threshold:  # Ratio exceeds threshold value, then exchange
-
-            difference = ratio - threshold
-
-            # Find the least ratio and its index
-            least_ratio = min(latency_ratio_list)
-            least_ratio_index = latency_ratio_list.index(least_ratio)
-
-            if least_ratio + difference <= 0.75:  # Distributing Load only if Lower Bar after addition is < threshold
-                ratio -= difference
-                least_ratio += difference
-            else:
-                print("❌ Cannot Distribute Load in this Region")
-                print("Continuing anyway...")
-
-            # Updating
-            latency_ratio_list[i] = ratio
-            latency_ratio_list[least_ratio_index] = least_ratio
+    latency_ratio_list = selection_sort(latency_ratio_list, threshold)
 
     """ Plotting the Normalized Latency Ratio Graph """
 
@@ -248,25 +227,7 @@ def doLoad(nodes, midpoint, region_name):
 
     threshold = 0.75
     print(f"Threshold Value for Load: {threshold}")
-
-    for i in range(len(load_ratio_list)):
-
-        ratio = load_ratio_list[i]
-
-        if ratio >= threshold:  # Ratio exceeds threshold value, then exchange
-
-            difference = ratio - threshold
-
-            least_ratio = min(load_ratio_list)
-            least_ratio_index = load_ratio_list.index(least_ratio)
-
-            if least_ratio + difference <= 0.75:    # Distributing Load only if Lower Bar after addition is < threshold
-                ratio -= difference
-                least_ratio += difference
-
-            # Updating
-            load_ratio_list[i] = ratio
-            load_ratio_list[least_ratio_index] = least_ratio
+    load_ratio_list = selection_sort(load_ratio_list, threshold)
 
     """ Plotting the Normalized Load Ratio Graph """
 
@@ -500,8 +461,8 @@ def bellmanFord(nodes, midpoint, region_name):
 # Starting Point of the Program
 def main():
 
-    do_latency = False  # ? True/False to plot Latency Graphs
-    do_load = False  # ? True/False to plot Load Graphs
+    do_latency = True  # ? True/False to plot Latency Graphs
+    do_load = True  # ? True/False to plot Load Graphs
     do_bellman_ford = True  # ? True/False to apply Bellman Ford Algorithm
 
     # Getting Region Details
