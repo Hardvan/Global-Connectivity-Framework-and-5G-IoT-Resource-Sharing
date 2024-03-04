@@ -409,7 +409,7 @@ def PERN_Region():
     midpoint["Latitude"] = 29.195361
 
     # Region Name
-    region_name = "QUEST"
+    region_name = "PERN"
 
     return nodes, midpoint, region_name
 
