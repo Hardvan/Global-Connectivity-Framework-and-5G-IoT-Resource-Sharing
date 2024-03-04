@@ -1,630 +1,190 @@
-# Bellman Ford for BT Asia Pacific Region
+# Bellman Ford for QUEST Region
 
-Source Node: Singapore (Node ID: 3)
+Source Node: Islamabad (Node ID: 7)
 
-No. of Nodes: 15
+No. of Nodes: 7
 
 ## Adjacency Lists
 
-### Jakarta Node
+### Peshawar Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Karachi</td>
+  <td>Faisalabad</td>
+  <td>Quetta</td>
+  <td>Lahore</td>
+  <td>Abbottabad</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>19.85</td>
-  <td>5.81</td>
-  <td>7.72</td>
-  <td>24.93</td>
-  <td>33.65</td>
-  <td>38.39</td>
-  <td>33.38</td>
-  <td>32.54</td>
-  <td>31.3</td>
-  <td>23.23</td>
-  <td>21.01</td>
-  <td>17.33</td>
-  <td>16.04</td>
-  <td>25.2</td>
+  <td>6.8</td>
+  <td>2.95</td>
+  <td>3.01</td>
+  <td>3.49</td>
+  <td>0.94</td>
+  <td>1.07</td>
 </tr>
 </table>
 
-### Perth Node
+### Karachi Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Faisalabad</td>
+  <td>Quetta</td>
+  <td>Lahore</td>
+  <td>Abbottabad</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>19.85</td>
-  <td>24.83</td>
-  <td>25.97</td>
-  <td>20.27</td>
-  <td>31.02</td>
-  <td>50.07</td>
-  <td>43.45</td>
-  <td>51.26</td>
-  <td>51.05</td>
-  <td>42.91</td>
-  <td>40.34</td>
-  <td>37.03</td>
-  <td>33.68</td>
-  <td>36.39</td>
+  <td>6.8</td>
+  <td>4.93</td>
+  <td>4.46</td>
+  <td>5.24</td>
+  <td>6.81</td>
+  <td>6.5</td>
 </tr>
 </table>
 
-### Singapore Node
+### Faisalabad Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Karachi</td>
+  <td>Quetta</td>
+  <td>Lahore</td>
+  <td>Abbottabad</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>5.81</td>
-  <td>24.83</td>
-  <td>2.18</td>
-  <td>30.52</td>
-  <td>38.79</td>
-  <td>33.5</td>
-  <td>29.04</td>
-  <td>26.85</td>
-  <td>26.3</td>
-  <td>18.12</td>
-  <td>15.54</td>
-  <td>13.89</td>
-  <td>10.27</td>
-  <td>20.92</td>
+  <td>2.95</td>
+  <td>4.93</td>
+  <td>3.42</td>
+  <td>0.74</td>
+  <td>2.41</td>
+  <td>2.08</td>
 </tr>
 </table>
 
-### Kuala Lumpur Node
+### Quetta Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Karachi</td>
+  <td>Faisalabad</td>
+  <td>Lahore</td>
+  <td>Abbottabad</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>7.72</td>
-  <td>25.97</td>
-  <td>2.18</td>
-  <td>32.59</td>
-  <td>40.95</td>
-  <td>31.32</td>
-  <td>26.92</td>
-  <td>25.39</td>
-  <td>25.53</td>
-  <td>17.36</td>
-  <td>14.44</td>
-  <td>14.3</td>
-  <td>8.34</td>
-  <td>18.81</td>
+  <td>3.01</td>
+  <td>4.46</td>
+  <td>3.42</td>
+  <td>4.15</td>
+  <td>3.53</td>
+  <td>3.35</td>
 </tr>
 </table>
 
-### Sydney Node
+### Lahore Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Karachi</td>
+  <td>Faisalabad</td>
+  <td>Quetta</td>
+  <td>Abbottabad</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>24.93</td>
-  <td>20.27</td>
-  <td>30.52</td>
-  <td>32.59</td>
-  <td>10.82</td>
-  <td>62.94</td>
-  <td>57.35</td>
-  <td>55.81</td>
-  <td>52.0</td>
-  <td>44.92</td>
-  <td>43.95</td>
-  <td>36.28</td>
-  <td>40.76</td>
-  <td>49.33</td>
+  <td>3.49</td>
+  <td>5.24</td>
+  <td>0.74</td>
+  <td>4.15</td>
+  <td>2.8</td>
+  <td>2.51</td>
 </tr>
 </table>
 
-### Auckland Node
+### Abbottabad Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Karachi</td>
+  <td>Faisalabad</td>
+  <td>Quetta</td>
+  <td>Lahore</td>
+  <td>Islamabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>33.65</td>
-  <td>31.02</td>
-  <td>38.79</td>
-  <td>40.95</td>
-  <td>10.82</td>
-  <td>72.04</td>
-  <td>66.85</td>
-  <td>62.1</td>
-  <td>56.9</td>
-  <td>50.69</td>
-  <td>50.45</td>
-  <td>41.53</td>
-  <td>48.71</td>
-  <td>58.72</td>
+  <td>0.94</td>
+  <td>6.81</td>
+  <td>2.41</td>
+  <td>3.53</td>
+  <td>2.8</td>
+  <td>0.34</td>
 </tr>
 </table>
 
-### New Delhi Node
+### Islamabad Node
 
 <table>
 <tr>
   <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
+  <td>Peshawar</td>
+  <td>Karachi</td>
+  <td>Faisalabad</td>
+  <td>Quetta</td>
+  <td>Lahore</td>
+  <td>Abbottabad</td>
 </tr>
 <tr>
   <th>Latency (ms)</th>
-  <td>38.39</td>
-  <td>50.07</td>
-  <td>33.5</td>
-  <td>31.32</td>
-  <td>62.94</td>
-  <td>72.04</td>
-  <td>7.14</td>
-  <td>25.27</td>
-  <td>34.3</td>
-  <td>31.52</td>
-  <td>28.48</td>
-  <td>38.02</td>
-  <td>24.73</td>
-  <td>13.82</td>
+  <td>1.07</td>
+  <td>6.5</td>
+  <td>2.08</td>
+  <td>3.35</td>
+  <td>2.51</td>
+  <td>0.34</td>
 </tr>
 </table>
 
-### Mumbai Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>33.38</td>
-  <td>43.45</td>
-  <td>29.04</td>
-  <td>26.92</td>
-  <td>57.35</td>
-  <td>66.85</td>
-  <td>7.14</td>
-  <td>27.26</td>
-  <td>35.29</td>
-  <td>30.92</td>
-  <td>27.39</td>
-  <td>35.92</td>
-  <td>21.7</td>
-  <td>8.18</td>
-</tr>
-</table>
-
-### Seoul Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>32.54</td>
-  <td>51.26</td>
-  <td>26.85</td>
-  <td>25.39</td>
-  <td>55.81</td>
-  <td>62.1</td>
-  <td>25.27</td>
-  <td>27.26</td>
-  <td>9.63</td>
-  <td>11.59</td>
-  <td>11.86</td>
-  <td>20.86</td>
-  <td>17.7</td>
-  <td>24.56</td>
-</tr>
-</table>
-
-### Tokyo Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>31.3</td>
-  <td>51.05</td>
-  <td>26.3</td>
-  <td>25.53</td>
-  <td>52.0</td>
-  <td>56.9</td>
-  <td>34.3</td>
-  <td>35.29</td>
-  <td>9.63</td>
-  <td>8.18</td>
-  <td>11.42</td>
-  <td>15.72</td>
-  <td>19.95</td>
-  <td>31.0</td>
-</tr>
-</table>
-
-### Taipei Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>23.23</td>
-  <td>42.91</td>
-  <td>18.12</td>
-  <td>17.36</td>
-  <td>44.92</td>
-  <td>50.69</td>
-  <td>31.52</td>
-  <td>30.92</td>
-  <td>11.59</td>
-  <td>8.18</td>
-  <td>3.89</td>
-  <td>9.28</td>
-  <td>12.45</td>
-  <td>25.27</td>
-</tr>
-</table>
-
-### Hong Kong Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>21.01</td>
-  <td>40.34</td>
-  <td>15.54</td>
-  <td>14.44</td>
-  <td>43.95</td>
-  <td>50.45</td>
-  <td>28.48</td>
-  <td>27.39</td>
-  <td>11.86</td>
-  <td>11.42</td>
-  <td>3.89</td>
-  <td>10.21</td>
-  <td>8.65</td>
-  <td>21.46</td>
-</tr>
-</table>
-
-### Manila Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Bangkok</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>17.33</td>
-  <td>37.03</td>
-  <td>13.89</td>
-  <td>14.3</td>
-  <td>36.28</td>
-  <td>41.53</td>
-  <td>38.02</td>
-  <td>35.92</td>
-  <td>20.86</td>
-  <td>15.72</td>
-  <td>9.28</td>
-  <td>10.21</td>
-  <td>14.44</td>
-  <td>28.88</td>
-</tr>
-</table>
-
-### Bangkok Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Chenai</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>16.04</td>
-  <td>33.68</td>
-  <td>10.27</td>
-  <td>8.34</td>
-  <td>40.76</td>
-  <td>48.71</td>
-  <td>24.73</td>
-  <td>21.7</td>
-  <td>17.7</td>
-  <td>19.95</td>
-  <td>12.45</td>
-  <td>8.65</td>
-  <td>14.44</td>
-  <td>14.44</td>
-</tr>
-</table>
-
-### Chenai Node
-
-<table>
-<tr>
-  <th>Neighbour Name</th>
-  <td>Jakarta</td>
-  <td>Perth</td>
-  <td>Singapore</td>
-  <td>Kuala Lumpur</td>
-  <td>Sydney</td>
-  <td>Auckland</td>
-  <td>New Delhi</td>
-  <td>Mumbai</td>
-  <td>Seoul</td>
-  <td>Tokyo</td>
-  <td>Taipei</td>
-  <td>Hong Kong</td>
-  <td>Manila</td>
-  <td>Bangkok</td>
-</tr>
-<tr>
-  <th>Latency (ms)</th>
-  <td>25.2</td>
-  <td>36.39</td>
-  <td>20.92</td>
-  <td>18.81</td>
-  <td>49.33</td>
-  <td>58.72</td>
-  <td>13.82</td>
-  <td>8.18</td>
-  <td>24.56</td>
-  <td>31.0</td>
-  <td>25.27</td>
-  <td>21.46</td>
-  <td>28.88</td>
-  <td>14.44</td>
-</tr>
-</table>
-
-## Adjacency List for Source Node: 'Singapore' after converting ~ 50% of latencies to a large number
+## Adjacency List for Source Node: 'Islamabad' after converting ~ 50% of latencies to a large number
 
 | Neighbour Name | Latency (ms) |
 | --- | --- |
-| Jakarta | 5.81 |
-| Perth | 24.83 |
-| Kuala Lumpur | 2.18 |
-| Sydney | 30.52 |
-| Auckland | 38.79 |
-| New Delhi | 33.5 |
-| Mumbai | 26625.54 |
-| Seoul | 27581.43 |
-| Tokyo | 53643.92 |
-| Taipei | 46664.2 |
-| Hong Kong | 95537.93 |
-| Manila | 28792.33 |
-| Bangkok | 10.27 |
-| Chenai | 20.92 |
+| Peshawar | 30843.04 |
+| Karachi | 6.5 |
+| Faisalabad | 89834.82 |
+| Quetta | 67330.04 |
+| Lahore | 47627.54 |
+| Abbottabad | 0.34 |
 
 ## Shortest Path from Source Node to all Nodes
 | Node Name | Old Distance (ms) | New Distance (ms) | Path |
 | --- | --- | --- | --- |
-| Jakarta | 5.81 | 5.81 | Jakarta |
-| Perth | 24.83 | 24.83 | Perth |
-| Singapore | 0 | 0 |  |
-| Kuala Lumpur | 2.18 | 2.18 | Kuala Lumpur |
-| Sydney | 30.52 | 30.52 | Sydney |
-| Auckland | 38.79 | 38.79 | Auckland |
-| New Delhi | 33.5 | 33.5 | New Delhi |
-| Mumbai | 26625.54 | 29.1 | Kuala Lumpur -> Mumbai |
-| Seoul | 27581.43 | 27.57 | Kuala Lumpur -> Seoul |
-| Tokyo | 53643.92 | 27.71 | Kuala Lumpur -> Tokyo |
-| Taipei | 46664.2 | 19.54 | Kuala Lumpur -> Taipei |
-| Hong Kong | 95537.93 | 16.62 | Kuala Lumpur -> Hong Kong |
-| Manila | 28792.33 | 16.48 | Kuala Lumpur -> Manila |
-| Bangkok | 10.27 | 10.27 | Bangkok |
-| Chenai | 20.92 | 20.92 | Chenai |
+| Peshawar | 30843.04 | 1.28 | Abbottabad -> Peshawar |
+| Karachi | 6.5 | 6.5 | Karachi |
+| Faisalabad | 89834.82 | 2.75 | Abbottabad -> Faisalabad |
+| Quetta | 67330.04 | 3.87 | Abbottabad -> Quetta |
+| Lahore | 47627.54 | 3.14 | Abbottabad -> Lahore |
+| Abbottabad | 0.34 | 0.34 | Abbottabad |
+| Islamabad | 0 | 0 |  |
