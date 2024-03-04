@@ -8,6 +8,8 @@ The objective of this project is to develop an effective solution that reduces n
 
 May 2022 - July 2022
 
+## [Link to the Website](https://connectxcellence.onrender.com/)
+
 ## Project Components
 
 ### NodesScript.py
