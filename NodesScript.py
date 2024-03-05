@@ -478,6 +478,7 @@ def bellmanFord(nodes, midpoint, region_name):
         G, pos, edge_labels=nx.get_edge_attributes(G, 'weight'), font_size=8)  # Decrease the font size
 
     global GRAPH_NO
+    plt.title(f"Bellman Ford Algorithm for {region_name} Region")
     region_name = region_name.replace(" ", "_")
     plt.savefig(f"static/Graphs/{region_name}/{GRAPH_NO:02d}_BellmanFord.png")
     GRAPH_NO += 1
