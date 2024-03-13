@@ -10,6 +10,10 @@ May 2022 - July 2022
 
 ## [Link to the Website](https://connectxcellence.onrender.com/)
 
+## Demonstration Video
+
+[![Demonstration Video](./demo/thumbnail.png)](https://youtu.be/J6Su5GhZxnU)
+
 ## Project Components
 
 ### NodesScript.py
